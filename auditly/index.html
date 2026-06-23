@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Auditly — See your supplement stack clearly</title>
-  <meta name="description" content="Auditly reviews the supplements you take and highlights where ingredients may be redundant, where doses may be worth a closer look, and what may be worth discussing with a clinician.">
+  <meta name="description" content="Auditly reviews the supplements you take and shows where they may overlap, where a dose may be worth a closer look, when to take each one, where you may be overspending, and what may be worth discussing with a clinician.">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" type="image/png" href="/favicon-96.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body>
   <nav class="nav">
@@ -19,24 +21,50 @@
   </nav>
 
   <header class="hero">
+    <img class="appicon" src="/auditly-icon.png" alt="Auditly app icon" width="88" height="88">
     <h1>Auditly</h1>
     <div class="tag">See your supplement stack clearly.</div>
-    <p>Auditly reviews the supplements you take and highlights where ingredients may be redundant, where doses may be worth a closer look, where you may be overspending, and what may be worth discussing with a clinician — all from the information you enter, in cautious, plain language.</p>
-    <span class="soon" style="display:block;margin-top:14px;font-size:13px;color:var(--soft)">Coming soon to the App Store.</span>
+    <p>Auditly reviews the supplements you take and shows you where they may overlap, where a dose may be worth a closer look, when to take each one, where you may be overspending, and what may be worth discussing with a clinician — all based on the information you enter, in cautious, plain language.</p>
+    <a class="appstore" href="https://apps.apple.com/us/app/auditly/id6780102394" style="margin-top:18px"><img src="/appstore-badge.svg" alt="Download Auditly on the App Store" width="150" height="50"></a>
   </header>
 
-  <section class="feat">
-    <div class="card">
-      <h3>Spot redundancy</h3>
-      <p>Find ingredients that show up across more than one product in your stack.</p>
+  <section class="showcase">
+    <div class="show-row">
+      <div class="show-text">
+        <h3>Everything you take, in one place</h3>
+        <p>Add a product by hand, or scan its Supplement Facts label and confirm the details. Auditly reads each ingredient and dose so your whole stack is in one view.</p>
+      </div>
+      <div class="show-shot"><img src="/auditly/img/stack.png" alt="The My Stack screen listing supplements and their ingredients" width="256" height="556" loading="lazy"></div>
     </div>
-    <div class="card">
-      <h3>Review doses</h3>
-      <p>See where a dose may be worth a closer look, in cautious, non-medical language.</p>
+
+    <div class="show-row">
+      <div class="show-text">
+        <h3>A clear, cautious read on your stack</h3>
+        <p>Run an audit and Auditly explains what it finds in plain, non-medical language:</p>
+        <ul class="show-list">
+          <li>Ingredients that overlap across more than one product</li>
+          <li>Doses that may be worth a closer look</li>
+          <li>Where overlap may be costing you money</li>
+          <li>What may be worth raising with a clinician</li>
+        </ul>
+      </div>
+      <div class="show-shot"><img src="/auditly/img/report.png" alt="The audit report showing monthly savings, duplicates, dose flags, and product verdicts" width="256" height="556" loading="lazy"></div>
     </div>
-    <div class="card">
-      <h3>Find what's worth keeping</h3>
-      <p>Cut waste and overlap, and surface what may be worth discussing with a clinician.</p>
+
+    <div class="show-row">
+      <div class="show-text">
+        <h3>Know when to take each one</h3>
+        <p>Auditly suggests an order and time of day for your stack, based on how things absorb and when they're conventionally taken — informational, from what you entered.</p>
+      </div>
+      <div class="show-shot"><img src="/auditly/img/schedule.png" alt="The daily schedule grouping supplements by time of day" width="256" height="556" loading="lazy"></div>
+    </div>
+
+    <div class="show-row">
+      <div class="show-text">
+        <h3>See what changed</h3>
+        <p>Edit your stack and re-run an audit to see exactly what moved since last time — new overlaps, changed verdicts, and how your potential savings shifted.</p>
+      </div>
+      <div class="show-shot"><img src="/auditly/img/changed.png" alt="The What Changed screen comparing an audit to the previous one" width="256" height="556" loading="lazy"></div>
     </div>
   </section>
 
