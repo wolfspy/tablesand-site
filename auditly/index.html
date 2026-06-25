@@ -1,88 +1,331 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Auditly — See your supplement stack clearly</title>
-  <meta name="description" content="Auditly reviews the supplements you take and shows where they may overlap, where a dose may be worth a closer look, when to take each one, where you may be overspending, and what may be worth discussing with a clinician.">
-  <link rel="stylesheet" href="/styles.css">
-  <link rel="icon" type="image/png" href="/favicon-96.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auditly — See your supplement stack clearly</title>
+<meta name="description" content="Auditly reviews the supplements you take and shows where they overlap, where a dose may be worth a closer look, when to take each one, and where you may be overspending — in cautious, plain language.">
+
+<link rel="icon" type="image/png" href="/favicon-96.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* ---- Brand palette (from Auditly asset catalog, light mode) ---- */
+    --canvas:      #F3F1ED;   /* app background / page */
+    --card:        #FFFFFF;
+    --ink:         #1A1916;   /* primary text */
+    --ink-2:       #64615B;   /* secondary text */
+    --ink-3:       #73716A;   /* faint text */
+    --hairline:    rgba(26,25,22,.07);
+    --teal:        #0E6E84;   /* brand accent (links, dots, underlines) */
+    --keep:        #1B6E45;   /* verdict green (checkmarks) */
+    --bezel:       linear-gradient(160deg,#2a2d35,#0c0e12); /* device body */
+    --aurora:      linear-gradient(135deg,#A2E0D6 0%,#A6CBEE 32%,#C6BCEA 60%,#F4CDD8 100%);
+    --aurora-soft: radial-gradient(120% 92% at 50% -12%,#A9E1D8 0%,#A9CCEE 26%,#C7BDEA 50%,#F4CFD8 72%,var(--canvas) 100%);
+    --maxw: 1200px;
+    --font: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);color:var(--ink);background:var(--canvas);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.5}
+  a{text-decoration:none;color:inherit}
+  img{display:block;max-width:100%}
+  ::selection{background:var(--ink);color:#fff}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:28px}
+
+  /* ---------- Device frames ---------- */
+  .device{background:var(--bezel)}
+  .device img{width:100%;background:#e9e7e2}      /* placeholder tone before load */
+  .device--phone{border-radius:50px;padding:10px;box-shadow:0 40px 90px -28px rgba(40,44,64,.4)}
+  .device--phone img{border-radius:42px;aspect-ratio:1320/2868}
+  .device--pad{border-radius:30px;padding:11px;box-shadow:0 50px 110px -30px rgba(40,44,64,.42),0 8px 24px rgba(40,44,64,.16)}
+  .device--pad img{border-radius:20px;aspect-ratio:2064/2752}
+
+  /* ---------- Buttons ---------- */
+  .btn-dark{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;font-weight:600;font-size:14.5px;padding:10px 18px;border-radius:999px}
+  .badge img{height:58px;width:auto}
+
+  /* ---------- Nav ---------- */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(243,241,237,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--hairline)}
+  header.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-block:16px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:19px;letter-spacing:-.02em}
+  .brand img{width:34px;height:34px;border-radius:9px;box-shadow:0 2px 8px rgba(26,25,22,.16)}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a.muted{font-size:15px;color:var(--ink-2);font-weight:500}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;overflow:hidden;padding:88px 0 0}
+  .hero::before{content:"";position:absolute;inset:0;background:var(--aurora-soft);opacity:.92}
+  .hero .inner{position:relative;max-width:980px;margin:0 auto;text-align:center;padding-inline:28px}
+  .pill{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.72);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.85);padding:7px 15px;border-radius:999px;font-size:13.5px;font-weight:600;color:#3A4452;margin-bottom:26px}
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--teal)}
+  h1{font-size:clamp(40px,7vw,68px);line-height:1.03;letter-spacing:-.035em;font-weight:800;max-width:760px;margin-inline:auto;text-wrap:balance}
+  .lede{font-size:clamp(17px,2.4vw,21px);line-height:1.5;color:#3F4855;max-width:580px;margin:26px auto 0;font-weight:450}
+  .cta{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:36px}
+  .fineprint{font-size:14px;color:var(--ink-2);font-weight:500}
+
+  .hero-devices{position:relative;max-width:1180px;margin:64px auto 0;height:660px}
+  .hero-devices .ipad{position:absolute;left:50%;top:0;transform:translateX(-62%);width:720px}
+  .hero-devices .iphone{position:absolute;right:50%;top:118px;transform:translateX(338px);width:266px;border-radius:46px}
+  .hero-devices .iphone img{border-radius:38px}
+
+  /* ---------- Trust strip ---------- */
+  .trust{background:var(--ink);color:#fff;padding:30px 0}
+  .trust .wrap{display:flex;align-items:center;justify-content:center;gap:42px;flex-wrap:wrap;text-align:center}
+  .trust .item{font-size:16px;font-weight:500;color:#ECEAE3;display:flex;align-items:center;gap:11px}
+  .trust .sep{width:1px;height:22px;background:rgba(255,255,255,.18)}
+
+  /* ---------- Section heads ---------- */
+  .eyebrow{font-size:14px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-2)}
+  .eyebrow.teal{color:var(--teal)}
+  h2{font-size:clamp(30px,4.5vw,42px);letter-spacing:-.03em;font-weight:800;line-height:1.08}
+
+  /* ---------- How it works ---------- */
+  .how{max-width:1100px;margin:0 auto;padding:96px 28px 24px;text-align:center}
+  .how h2{max-width:640px;margin-inline:auto}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px;text-align:left}
+  .step{background:var(--card);border:1px solid var(--hairline);border-radius:22px;padding:30px;box-shadow:0 12px 40px rgba(40,44,64,.05)}
+  .step .num{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:19px;color:var(--ink);margin-bottom:20px}
+  .step h3{font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:9px}
+  .step p{font-size:16px;color:var(--ink-2)}
+
+  /* ---------- Feature rows ---------- */
+  .feature{padding:80px 0}
+  .feature.tinted{background:var(--card);border-block:1px solid var(--hairline)}
+  .feature .grid{max-width:1140px;margin:0 auto;padding-inline:28px;display:grid;grid-template-columns:1fr .85fr;gap:64px;align-items:center}
+  .feature.reverse .grid{grid-template-columns:.85fr 1fr}
+  .feature .copy h2{margin-top:14px}
+  .feature .copy p{font-size:18px;color:#4A4640;margin-top:18px}
+  .feature .shot{display:flex;justify-content:center}
+  .feature .shot .device--phone{width:300px}
+  .checklist{display:flex;flex-direction:column;gap:13px;margin-top:24px}
+  .checklist li{list-style:none;display:flex;align-items:flex-start;gap:13px;font-size:16.5px;color:#2A2620;font-weight:500}
+  .checklist .ck{color:var(--keep);font-weight:800;margin-top:1px}
+
+  /* ---------- Frontier (iPad) ---------- */
+  .frontier{position:relative;overflow:hidden;padding:84px 0}
+  .frontier::before{content:"";position:absolute;inset:0;background:radial-gradient(110% 90% at 70% 40%,#A9E1D8 0%,#A9CCEE 28%,#C7BDEA 54%,#F4CFD8 78%,var(--canvas) 100%);opacity:.85}
+  .frontier .grid{position:relative;max-width:1180px;margin:0 auto;padding-inline:28px;display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+  .frontier .copy p{font-size:18.5px;color:#2F3845;margin-top:18px}
+  .frontier .copy .eyebrow,.frontier .copy h2{color:#1A1916}
+  .frontier .copy .eyebrow{color:#3A4452}
+  .frontier .shot{display:flex;justify-content:center}
+  .frontier .device--pad{width:560px;border-radius:26px}
+  .frontier .device--pad img{border-radius:17px}
+
+  /* ---------- Privacy ---------- */
+  .privacy{max-width:900px;margin:0 auto;padding:90px 28px;text-align:center}
+  .privacy .lock{font-size:30px;margin-bottom:18px}
+  .privacy p{font-size:19px;color:#4A4640;max-width:620px;margin:18px auto 0}
+  .privacy a.link{display:inline-block;margin-top:22px;font-size:16px;font-weight:700;color:var(--ink);border-bottom:2px solid var(--teal);padding-bottom:2px}
+
+  /* ---------- Final CTA ---------- */
+  .final{padding:0 28px 90px}
+  .final .panel{position:relative;overflow:hidden;max-width:1140px;margin:0 auto;border-radius:36px;padding:80px 40px;text-align:center;background:var(--aurora)}
+  .final h2{font-size:clamp(34px,5vw,52px);color:var(--ink);max-width:640px;margin-inline:auto}
+  .final p{font-size:19px;color:#243042;margin:20px auto 0;max-width:480px;font-weight:500}
+  .final .badge{margin-top:32px;display:flex;justify-content:center}
+
+  /* ---------- Footer ---------- */
+  footer.site{background:var(--ink);color:#97938B;padding:54px 0 44px}
+  footer.site .top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:22px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1)}
+  footer.site .brand{color:#fff}
+  footer.site .legal{display:flex;gap:26px;flex-wrap:wrap;font-size:14.5px;font-weight:500}
+  footer.site .disclaimer{font-size:13.5px;color:var(--ink-3);max-width:760px;margin-top:26px}
+  footer.site .copy{font-size:13.5px;color:var(--ink-3);margin-top:16px}
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:900px){
+    .steps{grid-template-columns:1fr}
+    .feature .grid,.feature.reverse .grid,.frontier .grid{grid-template-columns:1fr;gap:36px}
+    .feature .shot{order:2}
+    .feature .copy{order:1}
+    .frontier .device--pad{width:100%;max-width:560px}
+    /* Hero: stack devices instead of absolute overlap */
+    .hero-devices{height:auto;display:flex;justify-content:center;align-items:flex-start;gap:0;margin-top:48px}
+    .hero-devices .ipad{position:static;transform:none;width:min(560px,86%)}
+    .hero-devices .iphone{position:relative;transform:none;right:auto;top:0;width:160px;margin-left:-70px;align-self:center}
+  }
+  @media (max-width:620px){
+    .nav-links{gap:16px}
+    .nav-links a.muted{display:none}           /* keep just the CTA on small screens */
+    .trust .sep{display:none}
+    .trust .wrap{gap:14px;flex-direction:column}
+  }
+</style>
 </head>
 <body>
-  <nav class="nav">
-    <a class="brand" href="/">Tablesand</a>
-    <div class="links">
-      <a href="/auditly">Auditly</a>
-      <a href="/auditly/privacy">Privacy</a>
-      <a href="/auditly/terms">Terms</a>
-      <a href="/auditly/support">Support</a>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="/auditly-icon.png" alt="Auditly">Auditly</a>
+    <nav class="nav-links">
+      <a class="muted" href="/auditly/privacy">Privacy</a>
+      <a class="muted" href="/auditly/support">Support</a>
+      <a class="btn-dark" href="https://apps.apple.com/us/app/auditly/id6780102394">Get the app</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="inner">
+    <div class="pill"><span class="dot"></span> Now on iPhone &amp; iPad</div>
+    <h1>See your supplement stack clearly.</h1>
+    <p class="lede">Scan a label, build your stack, and get a calm, plain‑language read on overlaps, doses, timing, and what's quietly costing you money.</p>
+    <div class="cta">
+      <a class="badge" href="https://apps.apple.com/us/app/auditly/id6780102394"><img src="/appstore-badge.svg" alt="Download Auditly on the App Store"></a>
+      <div class="fineprint">Free · No account · Everything stays on your device</div>
     </div>
-  </nav>
+  </div>
+  <div class="hero-devices">
+    <div class="device device--pad ipad"><img src="/auditly/img/ipad-stack.png" alt="Auditly My Stack on iPad"></div>
+    <div class="device device--phone iphone"><img src="/auditly/img/iphone-report.png" alt="Auditly audit report on iPhone"></div>
+  </div>
+</section>
 
-  <header class="hero">
-    <img class="appicon" src="/auditly-icon.png" alt="Auditly app icon" width="88" height="88">
-    <h1>Auditly</h1>
-    <div class="tag">See your supplement stack clearly.</div>
-    <p>Auditly reviews the supplements you take and shows you where they may overlap, where a dose may be worth a closer look, when to take each one, where you may be overspending, and what may be worth discussing with a clinician — all based on the information you enter, in cautious, plain language.</p>
-    <a class="appstore" href="https://apps.apple.com/us/app/auditly/id6780102394" style="margin-top:18px"><img src="/appstore-badge.svg" alt="Download Auditly on the App Store" width="150" height="50"></a>
-  </header>
+<!-- ===== TRUST STRIP ===== -->
+<section class="trust">
+  <div class="wrap">
+    <div class="item">🔒 Private by design — your stack never leaves your device</div>
+    <div class="sep"></div>
+    <div class="item">No account, ever</div>
+    <div class="sep"></div>
+    <div class="item">Plain language, never medical advice</div>
+  </div>
+</section>
 
-  <section class="showcase">
-    <div class="show-row">
-      <div class="show-text">
-        <h3>Everything you take, in one place</h3>
-        <p>Add a product by hand, or scan its Supplement Facts label and confirm the details. Auditly reads each ingredient and dose so your whole stack is in one view.</p>
-      </div>
-      <div class="show-shot"><img src="/auditly/img/stack.png" alt="The My Stack screen listing supplements and their ingredients" width="256" height="556" loading="lazy"></div>
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how">
+  <div class="eyebrow teal">How it works</div>
+  <h2 style="margin-top:14px">From a shelf of bottles to one clear picture.</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="num" style="background:linear-gradient(150deg,#A9E1D8,#A9CCEE)">1</div>
+      <h3>Scan or add</h3>
+      <p>Point at a Supplement Facts label or type it in. Auditly reads each ingredient and dose.</p>
     </div>
-
-    <div class="show-row">
-      <div class="show-text">
-        <h3>A clear, cautious read on your stack</h3>
-        <p>Run an audit and Auditly explains what it finds in plain, non-medical language:</p>
-        <ul class="show-list">
-          <li>Ingredients that overlap across more than one product</li>
-          <li>Doses that may be worth a closer look</li>
-          <li>Where overlap may be costing you money</li>
-          <li>What may be worth raising with a clinician</li>
-        </ul>
-      </div>
-      <div class="show-shot"><img src="/auditly/img/report.png" alt="The audit report showing monthly savings, duplicates, dose flags, and product verdicts" width="256" height="556" loading="lazy"></div>
+    <div class="step">
+      <div class="num" style="background:linear-gradient(150deg,#C7BDEA,#D7C4E8)">2</div>
+      <h3>Run an audit</h3>
+      <p>See overlaps, dose flags, potential savings, and what may be worth raising with a clinician.</p>
     </div>
-
-    <div class="show-row">
-      <div class="show-text">
-        <h3>Know when to take each one</h3>
-        <p>Auditly suggests an order and time of day for your stack, based on how things absorb and when they're conventionally taken — informational, from what you entered.</p>
-      </div>
-      <div class="show-shot"><img src="/auditly/img/schedule.png" alt="The daily schedule grouping supplements by time of day" width="256" height="556" loading="lazy"></div>
+    <div class="step">
+      <div class="num" style="background:linear-gradient(150deg,#F4CFD8,#F4C5B8)">3</div>
+      <h3>Take it daily</h3>
+      <p>Get a suggested order and time of day, then track what changed each time you re‑audit.</p>
     </div>
+  </div>
+</section>
 
-    <div class="show-row">
-      <div class="show-text">
-        <h3>See what changed</h3>
-        <p>Edit your stack and re-run an audit to see exactly what moved since last time — new overlaps, changed verdicts, and how your potential savings shifted.</p>
-      </div>
-      <div class="show-shot"><img src="/auditly/img/changed.png" alt="The What Changed screen comparing an audit to the previous one" width="256" height="556" loading="lazy"></div>
+<!-- ===== FEATURE 1 ===== -->
+<section class="feature">
+  <div class="grid">
+    <div class="copy">
+      <div class="eyebrow">Your stack</div>
+      <h2>Everything you take, in one place.</h2>
+      <p>Add a product by hand, or scan its Supplement Facts label and confirm the details. Auditly reads each ingredient and dose so your whole stack lives in one clean view.</p>
     </div>
-  </section>
+    <div class="shot"><div class="device device--phone"><img src="/auditly/img/iphone-stack.png" alt="The My Stack screen" loading="lazy"></div></div>
+  </div>
+</section>
 
-  <section class="contact">
-    <h2>Private by design</h2>
-    <p style="max-width:560px;margin:0 auto;color:var(--muted);font-size:16px">Your stack stays on your device. There is no account, we have no servers that hold it, and we never sell your data. <a href="/auditly/privacy">Read the Privacy Policy</a>.</p>
-  </section>
-
-  <footer>
-    <div>
-      <a href="/auditly/support">Support</a> ·
-      <a href="/auditly/privacy">Privacy Policy</a> ·
-      <a href="/auditly/consumer-health-data">Consumer Health Data</a> ·
-      <a href="/auditly/terms">Terms</a> ·
-      <a href="/auditly/health-disclaimer">Health Disclaimer</a>
+<!-- ===== FEATURE 2 ===== -->
+<section class="feature tinted reverse">
+  <div class="grid">
+    <div class="shot"><div class="device device--phone"><img src="/auditly/img/iphone-verdicts.png" alt="The audit report verdicts" loading="lazy"></div></div>
+    <div class="copy">
+      <div class="eyebrow">The audit</div>
+      <h2>A clear, cautious read on your stack.</h2>
+      <p>Run an audit and Auditly gives every product a plain verdict — Keep, Cut, Replace, or Ask a clinician — and explains why in non‑medical language:</p>
+      <ul class="checklist">
+        <li><span class="ck">✓</span>Ingredients that overlap across more than one product</li>
+        <li><span class="ck">✓</span>Doses that may be worth a closer look</li>
+        <li><span class="ck">✓</span>Where overlap may be costing you money</li>
+        <li><span class="ck">✓</span>What may be worth raising with a clinician</li>
+      </ul>
     </div>
-    <div style="margin-top:10px;">© Tablesand LLC</div>
-    <span class="disc">Auditly is an educational decision-support tool — not medical advice, and not a substitute for professional care. It does not diagnose, treat, cure, or prevent any condition.</span>
-  </footer>
+  </div>
+</section>
+
+<!-- ===== FEATURE 3 ===== -->
+<section class="feature">
+  <div class="grid">
+    <div class="copy">
+      <div class="eyebrow">Timing</div>
+      <h2>Know when to take each one.</h2>
+      <p>Auditly suggests an order and time of day for your stack — morning, with dinner, before sleep — based on how things absorb and when they're conventionally taken. Informational, built from what you entered.</p>
+    </div>
+    <div class="shot"><div class="device device--phone"><img src="/auditly/img/iphone-schedule.png" alt="The daily schedule" loading="lazy"></div></div>
+  </div>
+</section>
+
+<!-- ===== FEATURE 4 ===== -->
+<section class="feature tinted reverse">
+  <div class="grid">
+    <div class="shot"><div class="device device--phone"><img src="/auditly/img/iphone-changed.png" alt="The What Changed screen" loading="lazy"></div></div>
+    <div class="copy">
+      <div class="eyebrow">Over time</div>
+      <h2>See exactly what changed.</h2>
+      <p>Edit your stack and re‑run an audit to see what moved since last time — new overlaps, changed verdicts, and how your potential monthly savings shifted.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FRONTIER (iPad) ===== -->
+<section class="frontier">
+  <div class="grid">
+    <div class="copy">
+      <div class="eyebrow">More room on iPad</div>
+      <h2>Your whole stack, side by side.</h2>
+      <p>On iPad, Auditly opens into a two‑column view — browse by goal, scan safety watch‑outs, and explore early‑evidence leads tied to what you already take. Same private app, more space to think.</p>
+      <div style="margin-top:30px"><a class="badge" href="https://apps.apple.com/us/app/auditly/id6780102394"><img src="/appstore-badge.svg" alt="Download on the App Store" style="height:54px"></a></div>
+    </div>
+    <div class="shot"><div class="device device--pad"><img src="/auditly/img/ipad-frontier.png" alt="Auditly Frontier on iPad" loading="lazy"></div></div>
+  </div>
+</section>
+
+<!-- ===== PRIVACY ===== -->
+<section class="privacy">
+  <div class="lock">🔒</div>
+  <h2>Private by design.</h2>
+  <p>Your stack stays on your device. There's no account, we have no servers that hold it, and we never sell your data.</p>
+  <a class="link" href="/auditly/privacy">Read the Privacy Policy →</a>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final">
+  <div class="panel">
+    <h2>Clarity for everything you take.</h2>
+    <p>Free to download. Nothing to sign up for.</p>
+    <div class="badge"><a href="https://apps.apple.com/us/app/auditly/id6780102394"><img src="/appstore-badge.svg" alt="Download Auditly on the App Store" style="height:60px"></a></div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site">
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="#top"><img src="/auditly-icon.png" alt="Auditly" style="width:30px;height:30px;border-radius:8px">Auditly</a>
+      <nav class="legal">
+        <a href="/auditly/support">Support</a>
+        <a href="/auditly/privacy">Privacy Policy</a>
+        <a href="/auditly/consumer-health-data">Consumer Health Data</a>
+        <a href="/auditly/terms">Terms</a>
+        <a href="/auditly/health-disclaimer">Health Disclaimer</a>
+      </nav>
+    </div>
+    <p class="disclaimer">Auditly is an educational decision‑support tool — not medical advice, and not a substitute for professional care. It does not diagnose, treat, cure, or prevent any condition.</p>
+    <p class="copy">© Tablesand LLC</p>
+  </div>
+</footer>
+
 </body>
 </html>
