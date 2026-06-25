@@ -12,15 +12,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:        #FBFBF9;
+    --bg:        #F3F1ED;
     --surface:   #FFFFFF;
     --ink:       #1A1A18;
     --muted:     #5f5f5a;
     --muted-2:   #6B6B66;
     --faint:     #9a9a92;
     --hairline:  #ECEBE5;
-    --accent:    #5E7A66;
-    --accent-soft: rgba(94,122,102,.13);
+    --accent:    #0E6E84;
+    --accent-soft: rgba(14,110,132,.13);
     --sans:    'Hanken Grotesk', system-ui, sans-serif;
     --display: 'Schibsted Grotesk', system-ui, sans-serif;
     --mono:    'IBM Plex Mono', ui-monospace, monospace;
@@ -52,7 +52,7 @@
   .nav {
     position: sticky; top: 0; z-index: 50;
     backdrop-filter: blur(14px);
-    background: rgba(251,251,249,.78);
+    background: rgba(243,241,237,.82);
     border-bottom: 1px solid var(--hairline);
   }
   .nav__inner {
@@ -75,7 +75,7 @@
   .hero__glow {
     position: absolute; top: -160px; left: 50%; transform: translateX(-50%);
     width: 900px; height: 680px; pointer-events: none;
-    background: radial-gradient(ellipse at center, var(--accent-soft), rgba(94,122,102,0) 62%);
+    background: radial-gradient(ellipse at center, var(--accent-soft), rgba(14,110,132,0) 62%);
   }
   .hero__inner { position: relative; max-width: 880px; margin: 0 auto; padding: 148px 40px 116px; text-align: center; }
   .hero h1 {
@@ -99,7 +99,7 @@
   .brandrow { display: flex; align-items: center; gap: 18px; margin-bottom: 30px; }
   .icon { position: relative; width: 72px; height: 72px; flex: none; }
   .icon__glow { position: absolute; inset: -26px; pointer-events: none;
-    background: radial-gradient(circle, rgba(94,122,102,.4), rgba(94,122,102,0) 70%); }
+    background: radial-gradient(circle, rgba(14,110,132,.4), rgba(14,110,132,0) 70%); }
   .icon img { position: relative; width: 72px; height: 72px; border-radius: 17px; box-shadow: 0 4px 14px rgba(26,26,24,.16); }
   .brandrow__name { font-family: var(--display); font-weight: 600; font-size: 32px; letter-spacing: -.02em; }
   .showcase h2 { font-family: var(--display); font-weight: 600; font-size: 44px; line-height: 1.08; letter-spacing: -.025em; margin: 0 0 22px; }
@@ -134,9 +134,9 @@
   }
   .privacy__glow { position: absolute; bottom: -180px; left: 50%; transform: translateX(-50%);
     width: 760px; height: 520px; pointer-events: none;
-    background: radial-gradient(ellipse at center, rgba(94,122,102,.28), rgba(94,122,102,0) 65%); }
+    background: radial-gradient(ellipse at center, rgba(14,110,132,.28), rgba(14,110,132,0) 65%); }
   .privacy__inner { position: relative; }
-  .privacy .eyebrow { color: #8FB39A; display: block; margin-bottom: 24px; }
+  .privacy .eyebrow { color: #79C3D4; display: block; margin-bottom: 24px; }
   .privacy h3 { font-family: var(--display); font-weight: 600; font-size: 46px; line-height: 1.1; letter-spacing: -.025em; color: var(--bg); max-width: 680px; margin: 0 auto 22px; }
   .privacy p { font-size: 18px; line-height: 1.6; color: #b9b9b2; max-width: 540px; margin: 0 auto; }
 
@@ -146,17 +146,17 @@
   .contact h3 { font-family: var(--display); font-weight: 600; font-size: 40px; letter-spacing: -.025em; margin: 0 0 26px; }
   .contact__email {
     display: inline-block; font-family: var(--display); font-size: 26px; color: var(--accent);
-    text-decoration: none; border-bottom: 2px solid rgba(94,122,102,.3); padding-bottom: 4px;
+    text-decoration: none; border-bottom: 2px solid rgba(14,110,132,.3); padding-bottom: 4px;
   }
 
   /* ---------- footer ---------- */
-  .footer { border-top: 1px solid var(--hairline); }
+  .footer { background: #1A1916; }
   .footer__inner {
     max-width: var(--maxw); margin: 0 auto; padding: 48px 40px;
     display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;
   }
-  .footer__inner .wordmark { font-size: 17px; }
-  .footer__legal { text-align: right; font-size: 13px; color: var(--faint); line-height: 1.7; }
+  .footer__inner .wordmark { font-size: 17px; color: #fff; }
+  .footer__legal { text-align: right; font-size: 13px; color: #73716A; line-height: 1.7; }
 
   /* ---------- responsive ---------- */
   @media (max-width: 920px) {
@@ -188,9 +188,9 @@
   <!-- ===== nav ===== -->
   <header class="nav">
     <div class="nav__inner">
-      <div class="wordmark">Tablesand</div>
+      <a class="wordmark" href="/" style="text-decoration:none; color:inherit;">Tablesand</a>
       <nav class="nav__links">
-        <a href="#auditly">Auditly</a>
+        <a href="/auditly">Auditly</a>
         <a href="#contact">Contact</a>
         <a class="btn-pill" href="https://apps.apple.com/us/app/auditly/id6780102394">Get Auditly</a>
       </nav>
@@ -255,9 +255,9 @@
           <p>A suggested order and time of day, based on how things absorb and when they're conventionally taken.</p>
         </article>
         <article class="card">
-          <div class="card__shot"><img src="/auditly/img/iphone-changed.png" alt="The What Changed screen comparing an audit to the previous one"></div>
-          <h4>See what changed</h4>
-          <p>Re-run an audit to see new overlaps, changed verdicts, and how your potential savings shifted.</p>
+          <div class="card__shot"><img src="/auditly/img/iphone-frontier.jpg" alt="The Frontier screen - browse early-evidence substances by goal"></div>
+          <h4>Go beyond your stack</h4>
+          <p>Browse the Frontier by goal and surface early-evidence leads tied to what you already take - exploratory reading, not advice.</p>
         </article>
       </div>
     </section>
