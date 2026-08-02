@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consumer Health Data Privacy Policy - Labora</title>
+  <meta name="description" content="How Labora handles consumer health data under Washington's My Health My Data Act and similar state laws.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --paper: #F3F1ED;
+  --ink: #1A1916;
+  --muted: #5C564C;
+  --soft: #8A8377;
+  --accent: #A82C3C;
+  --accent-soft: #F6E4E7;
+  --card: #FFFFFF;
+  --border: #ECE7DE;
+  --footer: #1A1916;
+  --display: 'Schibsted Grotesk', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.65;
+}
+
+a { color: var(--accent); }
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+/* Top nav */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px clamp(24px, calc((100vw - 1132px) / 2), 40px);
+  background: rgba(243,241,237,.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.nav .brand { font-family: var(--display); font-weight: 600; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+.nav .links a { margin-left: 18px; font-size: 15px; text-decoration: none; color: var(--muted); }
+.nav .links a:hover { color: var(--ink); }
+
+/* Hero */
+.hero { text-align: center; padding: 56px 24px 56px; }
+.hero h1 { font-family: var(--display); font-size: clamp(40px, 8vw, 64px); font-weight: 600; margin: 0 0 12px; letter-spacing: -0.025em; }
+.hero .tag { font-size: clamp(18px, 3.2vw, 24px); color: var(--accent); font-weight: 600; margin: 0 0 20px; }
+.hero p { max-width: 560px; margin: 0 auto 0; font-size: 17px; color: var(--muted); }
+
+/* Feature / product row */
+.feat { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 8px 24px 56px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 24px;
+  flex: 1 1 240px;
+  max-width: 320px;
+  text-align: left;
+}
+.card h3 { margin: 0 0 8px; font-size: 18px; }
+.card p { margin: 0; font-size: 15px; color: var(--muted); }
+.card .link { display: inline-block; margin-top: 12px; font-size: 14px; font-weight: 600; text-decoration: none; }
+
+/* App icon */
+.appicon { display: block; width: 88px; height: 88px; border-radius: 20px; margin: 0 auto 22px; box-shadow: 0 2px 12px rgba(35, 33, 28, .14); }
+.card-head { display: flex; align-items: center; gap: 12px; margin: 0 0 8px; }
+.card-head img { width: 40px; height: 40px; border-radius: 9px; box-shadow: 0 1px 5px rgba(35, 33, 28, .12); }
+.card-head h3 { margin: 0; font-size: 18px; }
+
+/* App Store badge */
+.appstore { display: inline-block; line-height: 0; }
+.appstore img, .appstore svg { height: 52px; width: auto; }
+.appstore:hover { opacity: .85; }
+.card .appstore { margin-top: 14px; }
+
+/* Alternating screenshot showcase */
+.showcase { max-width: 900px; margin: 0 auto; padding: 8px 24px 24px; }
+.show-row { display: flex; align-items: center; gap: 52px; padding: 24px 0; }
+.show-row:nth-child(even) { flex-direction: row-reverse; }
+.show-text { flex: 1 1 0; min-width: 0; }
+.show-text h3 { font-size: clamp(22px, 3vw, 27px); margin: 0 0 10px; letter-spacing: -0.02em; }
+.show-text p { font-size: 16px; color: var(--muted); margin: 0; }
+.show-list { list-style: none; margin: 16px 0 0; padding: 0; }
+.show-list li { position: relative; padding-left: 26px; margin: 0 0 9px; font-size: 15px; color: var(--muted); }
+.show-list li:last-child { margin-bottom: 0; }
+.show-list li::before {
+  content: ""; position: absolute; left: 0; top: 6px; width: 15px; height: 9px;
+  border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent);
+  transform: rotate(-45deg);
+}
+.show-shot { flex: 0 0 auto; width: 208px; }
+.show-shot img { width: 100%; height: auto; display: block; border-radius: 28px; box-shadow: 0 12px 38px rgba(35, 33, 28, .16); }
+@media (max-width: 720px) {
+  .show-row, .show-row:nth-child(even) { flex-direction: column; text-align: center; gap: 20px; padding: 26px 0; }
+  .show-shot { width: 196px; }
+  .show-list { display: inline-block; text-align: left; }
+}
+
+/* Contact */
+.contact { text-align: center; padding: 8px 24px 56px; }
+.contact h2 { font-size: 22px; font-weight: 700; margin: 0 0 12px; }
+.mail {
+  display: inline-block; background: var(--accent); color: #fff;
+  text-decoration: none; padding: 12px 22px; border-radius: 10px; font-weight: 600; font-size: 16px;
+}
+.mail:hover { opacity: .9; }
+
+/* Document pages */
+.doc { padding: 48px 24px 24px; }
+.doc h1 { font-family: var(--display); font-size: clamp(30px, 5vw, 42px); font-weight: 600; margin: 0 0 6px; letter-spacing: -0.025em; }
+.doc .date { color: var(--soft); font-size: 14px; margin: 0 0 28px; }
+.doc h2 { font-family: var(--display); font-size: 20px; font-weight: 600; color: var(--accent); margin: 32px 0 10px; }
+.doc p { margin: 0 0 14px; font-size: 16px; color: #3F3A32; }
+.doc ul { margin: 0 0 14px; padding-left: 22px; }
+.doc li { margin: 0 0 8px; font-size: 16px; color: #3F3A32; }
+.doc strong { color: var(--ink); }
+
+/* Footer */
+footer {
+  background: var(--footer); color: #C9C3B7; text-align: center;
+  padding: 36px 24px; margin-top: 48px; font-size: 14px;
+}
+footer a { color: #E7E1D6; text-decoration: none; margin: 0 10px; }
+footer a:hover { text-decoration: underline; }
+footer .disc { display: block; max-width: 560px; margin: 12px auto 0; color: #8E887C; font-size: 12.5px; line-height: 1.6; }
+
+</style>
+  <link rel="icon" type="image/png" href="/favicon-96.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon-96.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" href="/">Tablesand</a>
+    <div class="links">
+      <a href="/labora">Labora</a>
+      <a href="/labora/privacy">Privacy</a>
+      <a href="/labora/terms">Terms</a>
+      <a href="/labora/support">Support</a>
+    </div>
+  </nav>
+
+  <main class="wrap doc">
+    <h1>Consumer Health Data Privacy Policy</h1>
+    <p class="date">Last updated: August 2, 2026</p>
+
+    <p>This Consumer Health Data Privacy Policy explains how Tablesand LLC, the maker of Labora, handles &ldquo;consumer health data&rdquo; as that term is used under certain U.S. state laws, including the Washington My Health My Data Act and Nevada&rsquo;s consumer health data law. It supplements our main <a href="/labora/privacy">Privacy Policy</a>.</p>
+
+    <h2>What we mean by consumer health data</h2>
+    <p>Some state laws treat information that relates to a person&rsquo;s health as consumer health data. Lab results are squarely within those definitions, and we treat everything Labora handles about your results that way, without arguing about the edges.</p>
+
+    <h2>How Labora handles it</h2>
+    <ul>
+      <li><strong>Your saved results are never collected by us.</strong> Every report you save, its values and ranges, the source pages kept alongside it, the concerns you build, and your optional profile are stored only on your device. We have no account system and no servers that hold this data, we never receive it, and we cannot access it - so we do not collect, process, sell, or share it as those terms are used under these laws.</li>
+      <li><strong>Report pages are processed only to give you the read you asked for.</strong> When you scan or import a report, its page images are sent to our service provider (Google) to be turned into text that you then confirm. Those pages are images of your lab report, so we treat them as consumer health data. We process them because it is necessary to provide the feature you requested; they are used for no other purpose, are not retained by us, and are handled on a paid tier under terms that do not permit using them to train models or to advertise.</li>
+      <li><strong>You can avoid that step entirely.</strong> Entering a report&rsquo;s values by hand keeps everything on your device. Nothing is sent.</li>
+      <li><strong>We do not sell it.</strong> We never sell consumer health data. We have no mechanism for a consumer to authorize a sale, because no sale ever occurs.</li>
+      <li><strong>We do not share it.</strong> We do not disclose consumer health data to any third party for that party&rsquo;s own use. Google acts only as our processor, on our instructions.</li>
+      <li><strong>No geofencing.</strong> We do not use geofencing around any health-care facility, or for any other purpose.</li>
+    </ul>
+
+    <h2>Categories, sources, purposes, and sharing</h2>
+    <p>To the extent information you provide is treated as consumer health data under state law, this is how we handle it:</p>
+    <ul>
+      <li><strong>Categories we collect off your device:</strong> only the page images of a report you choose to scan or import, and the marker names, values, units, and ranges read from them. We do not collect your saved history, your concerns, or your profile, because those never leave your device.</li>
+      <li><strong>Sources:</strong> the lab report you photograph or import.</li>
+      <li><strong>Purposes:</strong> solely to turn those pages into values for your confirmation - the feature you requested. There is no secondary use.</li>
+      <li><strong>Categories we share, and with whom:</strong> we share the page images only with Google, acting as our processor, to perform that reading. We do not share consumer health data with any third party for that party&rsquo;s own purposes, we do not sell it, and we have no affiliates that receive it.</li>
+      <li><strong>Retention:</strong> the pages are processed to return a result and are not retained by us. Our service logs the number of pages and which model was used, never the content of a report.</li>
+    </ul>
+
+    <h2>Who we share data with</h2>
+    <p>We do not share consumer health data with third parties for their own use. We rely on Google (Firebase Cloud Functions, Firebase App Check, and Gemini) only as a processor to read your report pages and to verify that requests come from a genuine copy of the app. Labora is free and has no in-app purchases, so no payment processor is involved.</p>
+
+    <h2>Your rights</h2>
+    <p>If you live in a state that grants consumer-health-data rights, you may have the right to confirm whether we process your consumer health data, access it, withdraw consent and have it deleted, and appeal a decision on your request. Here is how each works given that your data stays on your device:</p>
+    <ul>
+      <li><strong>Confirm and access.</strong> We can confirm that we hold no consumer health data about you on our servers - your reports, results, concerns, and profile never leave your device, and the pages that do leave during a read are not retained by us. There is therefore nothing on our side to provide; your own data stays visible to you in the app at any time.</li>
+      <li><strong>Delete and withdraw consent.</strong> You delete reports yourself in the app, and removing the app removes everything it stored. Because we keep no copy, there is nothing further for us to delete. To withdraw consent to the reading step going forward, enter your values by hand instead of scanning.</li>
+      <li><strong>Appeal.</strong> If you disagree with how we respond to a request, you may appeal by replying to our response, and we will reconsider.</li>
+    </ul>
+    <p>To make a request, or to have us confirm our handling, email <a href="mailto:privacy@tablesand.com">privacy@tablesand.com</a>; we will verify and respond as applicable law requires. Washington residents who believe their rights have been violated may also contact the Washington State Office of the Attorney General.</p>
+
+    <h2>Changes</h2>
+    <p>We may update this policy as the app or the law evolves. Material changes will be reflected here with a new &ldquo;Last updated&rdquo; date.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about consumer health data? Email <a href="mailto:privacy@tablesand.com">privacy@tablesand.com</a>.</p>
+  </main>
+
+  <footer>
+    <div>
+      <a href="/labora/support">Support</a> &middot;
+      <a href="/labora/privacy">Privacy Policy</a> &middot;
+      <a href="/labora/consumer-health-data">Consumer Health Data</a> &middot;
+      <a href="/labora/terms">Terms</a> &middot;
+      <a href="/labora/health-disclaimer">Health Disclaimer</a>
+    </div>
+    <div style="margin-top:10px;">&copy; Tablesand LLC</div>
+    <span class="disc">Labora is a general-wellness tool for understanding and tracking your own lab results - not medical advice, and not a substitute for professional care. It does not diagnose, treat, cure, or prevent any condition.</span>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms of Use - Labora</title>
+  <meta name="description" content="The terms that apply when you use the Labora app.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --paper: #F3F1ED;
+  --ink: #1A1916;
+  --muted: #5C564C;
+  --soft: #8A8377;
+  --accent: #A82C3C;
+  --accent-soft: #F6E4E7;
+  --card: #FFFFFF;
+  --border: #ECE7DE;
+  --footer: #1A1916;
+  --display: 'Schibsted Grotesk', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.65;
+}
+
+a { color: var(--accent); }
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+/* Top nav */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px clamp(24px, calc((100vw - 1132px) / 2), 40px);
+  background: rgba(243,241,237,.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.nav .brand { font-family: var(--display); font-weight: 600; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+.nav .links a { margin-left: 18px; font-size: 15px; text-decoration: none; color: var(--muted); }
+.nav .links a:hover { color: var(--ink); }
+
+/* Hero */
+.hero { text-align: center; padding: 56px 24px 56px; }
+.hero h1 { font-family: var(--display); font-size: clamp(40px, 8vw, 64px); font-weight: 600; margin: 0 0 12px; letter-spacing: -0.025em; }
+.hero .tag { font-size: clamp(18px, 3.2vw, 24px); color: var(--accent); font-weight: 600; margin: 0 0 20px; }
+.hero p { max-width: 560px; margin: 0 auto 0; font-size: 17px; color: var(--muted); }
+
+/* Feature / product row */
+.feat { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 8px 24px 56px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 24px;
+  flex: 1 1 240px;
+  max-width: 320px;
+  text-align: left;
+}
+.card h3 { margin: 0 0 8px; font-size: 18px; }
+.card p { margin: 0; font-size: 15px; color: var(--muted); }
+.card .link { display: inline-block; margin-top: 12px; font-size: 14px; font-weight: 600; text-decoration: none; }
+
+/* App icon */
+.appicon { display: block; width: 88px; height: 88px; border-radius: 20px; margin: 0 auto 22px; box-shadow: 0 2px 12px rgba(35, 33, 28, .14); }
+.card-head { display: flex; align-items: center; gap: 12px; margin: 0 0 8px; }
+.card-head img { width: 40px; height: 40px; border-radius: 9px; box-shadow: 0 1px 5px rgba(35, 33, 28, .12); }
+.card-head h3 { margin: 0; font-size: 18px; }
+
+/* App Store badge */
+.appstore { display: inline-block; line-height: 0; }
+.appstore img, .appstore svg { height: 52px; width: auto; }
+.appstore:hover { opacity: .85; }
+.card .appstore { margin-top: 14px; }
+
+/* Alternating screenshot showcase */
+.showcase { max-width: 900px; margin: 0 auto; padding: 8px 24px 24px; }
+.show-row { display: flex; align-items: center; gap: 52px; padding: 24px 0; }
+.show-row:nth-child(even) { flex-direction: row-reverse; }
+.show-text { flex: 1 1 0; min-width: 0; }
+.show-text h3 { font-size: clamp(22px, 3vw, 27px); margin: 0 0 10px; letter-spacing: -0.02em; }
+.show-text p { font-size: 16px; color: var(--muted); margin: 0; }
+.show-list { list-style: none; margin: 16px 0 0; padding: 0; }
+.show-list li { position: relative; padding-left: 26px; margin: 0 0 9px; font-size: 15px; color: var(--muted); }
+.show-list li:last-child { margin-bottom: 0; }
+.show-list li::before {
+  content: ""; position: absolute; left: 0; top: 6px; width: 15px; height: 9px;
+  border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent);
+  transform: rotate(-45deg);
+}
+.show-shot { flex: 0 0 auto; width: 208px; }
+.show-shot img { width: 100%; height: auto; display: block; border-radius: 28px; box-shadow: 0 12px 38px rgba(35, 33, 28, .16); }
+@media (max-width: 720px) {
+  .show-row, .show-row:nth-child(even) { flex-direction: column; text-align: center; gap: 20px; padding: 26px 0; }
+  .show-shot { width: 196px; }
+  .show-list { display: inline-block; text-align: left; }
+}
+
+/* Contact */
+.contact { text-align: center; padding: 8px 24px 56px; }
+.contact h2 { font-size: 22px; font-weight: 700; margin: 0 0 12px; }
+.mail {
+  display: inline-block; background: var(--accent); color: #fff;
+  text-decoration: none; padding: 12px 22px; border-radius: 10px; font-weight: 600; font-size: 16px;
+}
+.mail:hover { opacity: .9; }
+
+/* Document pages */
+.doc { padding: 48px 24px 24px; }
+.doc h1 { font-family: var(--display); font-size: clamp(30px, 5vw, 42px); font-weight: 600; margin: 0 0 6px; letter-spacing: -0.025em; }
+.doc .date { color: var(--soft); font-size: 14px; margin: 0 0 28px; }
+.doc h2 { font-family: var(--display); font-size: 20px; font-weight: 600; color: var(--accent); margin: 32px 0 10px; }
+.doc p { margin: 0 0 14px; font-size: 16px; color: #3F3A32; }
+.doc ul { margin: 0 0 14px; padding-left: 22px; }
+.doc li { margin: 0 0 8px; font-size: 16px; color: #3F3A32; }
+.doc strong { color: var(--ink); }
+
+/* Footer */
+footer {
+  background: var(--footer); color: #C9C3B7; text-align: center;
+  padding: 36px 24px; margin-top: 48px; font-size: 14px;
+}
+footer a { color: #E7E1D6; text-decoration: none; margin: 0 10px; }
+footer a:hover { text-decoration: underline; }
+footer .disc { display: block; max-width: 560px; margin: 12px auto 0; color: #8E887C; font-size: 12.5px; line-height: 1.6; }
+
+</style>
+  <link rel="icon" type="image/png" href="/favicon-96.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon-96.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" href="/">Tablesand</a>
+    <div class="links">
+      <a href="/labora">Labora</a>
+      <a href="/labora/privacy">Privacy</a>
+      <a href="/labora/terms">Terms</a>
+      <a href="/labora/support">Support</a>
+    </div>
+  </nav>
+
+  <main class="wrap doc">
+    <h1>Terms of Use</h1>
+    <p class="date">Last updated: August 2, 2026</p>
+
+    <p>These Terms of Use (&ldquo;Terms&rdquo;) are a legal agreement between you and Tablesand LLC, a Colorado limited liability company (&ldquo;Tablesand,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;), the maker of the Labora app (&ldquo;Labora&rdquo; or the &ldquo;app&rdquo;). By downloading or using Labora, you agree to these Terms. If you do not agree, do not use the app.</p>
+
+    <h2>1. Who can use Labora</h2>
+    <p>You must be at least 18 years old and located in the United States to use Labora. By using the app, you represent that you meet these requirements.</p>
+
+    <h2>2. General wellness, and educational use only</h2>
+    <p>Labora is a general-wellness tool for understanding and tracking your own lab results. It is not medical advice and is not a substitute for professional care, and using it does not create a doctor-patient or other professional relationship. Labora does not diagnose, treat, cure, or prevent any disease or condition, does not screen for or monitor any disease, and does not provide medical clearance of any kind. What it shows is generated from the report you provide - including the reference ranges <strong>your own lab</strong> printed - together with general reference information, and it may be incomplete or incorrect. Our <a href="/labora/health-disclaimer">Health Disclaimer</a> is part of these Terms. You are responsible for verifying any information before acting on it and for consulting a qualified professional about your health. Do not start, stop, or change any medication or course of care based only on this app.</p>
+
+    <h2>3. Your reports, and confirming what the app reads</h2>
+    <p>Labora reads a report you supply and can misread it. The app asks you to confirm every extracted value before it is saved, and you agree that you are responsible for checking what it read against your original report. Your original report, not this app, is the record. We make no warranty that any automatic read is accurate or complete.</p>
+
+    <h2>4. Your license</h2>
+    <p>We grant you a personal, limited, revocable, non-exclusive, non-transferable license to use Labora on Apple devices you own or control, for your own informational use, subject to these Terms and the App Store Terms of Service.</p>
+
+    <h2>5. Acceptable use</h2>
+    <p>You agree not to: copy, modify, reverse-engineer, decompile, or attempt to extract the source code of the app except as permitted by law; resell, rent, or commercially exploit the app or its output; use the app to interpret results for other people or to make clinical determinations on someone else&rsquo;s behalf; upload reports belonging to someone else without their permission; interfere with or abuse the app&rsquo;s backend services; or use the app unlawfully.</p>
+
+    <h2>6. No account</h2>
+    <p>Labora does not require an account, and your reports and results are stored on your device. How your information is handled - including the one step where report pages are sent to be read - is described in our <a href="/labora/privacy">Privacy Policy</a> and <a href="/labora/consumer-health-data">Consumer Health Data Privacy Policy</a>.</p>
+
+    <h2>7. Price</h2>
+    <p>Labora is free. There is no paywall, no in-app purchase, and no subscription. We may change this for future versions, but anything you have already installed remains subject to the terms it shipped under.</p>
+
+    <h2>8. Intellectual property</h2>
+    <p>Labora, including its software, content, and branding, is owned by Tablesand or its licensors and is protected by law. Except for the license granted above, we reserve all rights. Your own results, and anything you export from the app, are yours to keep and use.</p>
+
+    <h2>9. Changes to the app and its data</h2>
+    <p>We may update the app&rsquo;s reference information, interpretation rules, and wording over time as the underlying science and sources change. Saved reports record the versions used to interpret them.</p>
+
+    <h2>10. Disclaimer of warranties</h2>
+    <p>To the fullest extent permitted by law, Labora is provided &ldquo;as is&rdquo; and &ldquo;as available,&rdquo; without warranties of any kind, whether express, implied, or statutory, including warranties of accuracy, completeness, merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the app, its reference data, or anything it reads from your report is current, complete, accurate, or error-free.</p>
+
+    <h2>11. Limitation of liability</h2>
+    <p>To the fullest extent permitted by law, Tablesand will not be liable for any indirect, incidental, special, consequential, or punitive damages, or for any loss arising from your use of or reliance on the app or its output. Our total liability for any claim relating to the app is limited to US$50. Some states do not allow the exclusion or limitation of certain damages, so some of these limitations may not apply to you.</p>
+
+    <h2>12. Indemnification</h2>
+    <p>You agree to indemnify and hold harmless Tablesand from claims, losses, and expenses arising out of your misuse of the app, your violation of these Terms, or your reliance on the app&rsquo;s output contrary to professional advice.</p>
+
+    <h2>13. Governing law and disputes</h2>
+    <ul>
+      <li>These Terms are governed by the laws of the State of Colorado, United States, without regard to its conflict-of-laws rules.</li>
+      <li><strong>Let&rsquo;s try to resolve it first.</strong> Before filing any claim, please email us at <a href="mailto:support@tablesand.com">support@tablesand.com</a> and give us 60 days to resolve the matter.</li>
+      <li>If we cannot resolve it, any dispute will be brought in the state or federal courts located in Colorado, and you and we consent to the personal jurisdiction and venue of those courts. Either party may instead bring an individual claim in small-claims court.</li>
+      <li><strong>Class-action and jury-trial waiver.</strong> To the fullest extent permitted by law, claims may be brought only on an individual basis and not as a plaintiff or class member in any class, collective, or representative action, and you and we each waive any right to a jury trial. Certain claims, including some consumer-health-data claims under state law, may not be subject to these waivers.</li>
+    </ul>
+
+    <h2>14. Apple App Store</h2>
+    <p>The following applies because you obtain Labora through the Apple App Store:</p>
+    <ul>
+      <li>These Terms are between you and Tablesand only, not Apple. Apple is not responsible for the app or its content.</li>
+      <li><strong>Scope of license.</strong> Your license to use Labora is a non-transferable license to use the app on any Apple-branded device you own or control, and as permitted by the Usage Rules in the Apple Media Services Terms and Conditions, except that the app may be accessed by other accounts associated with you through Family Sharing or volume purchasing.</li>
+      <li><strong>Maintenance and support.</strong> Tablesand, not Apple, is solely responsible for providing any maintenance and support for the app. You can reach us at <a href="mailto:support@tablesand.com">support@tablesand.com</a>. Apple has no obligation to provide any maintenance or support for the app.</li>
+      <li>Apple is not responsible for any product warranties, whether express or implied. In the event of any failure of the app to conform to an applicable warranty, you may notify Apple and Apple may refund the purchase price; to the maximum extent permitted by law, Apple has no other warranty obligation for the app, and any other claims, losses, liabilities, damages, costs, or expenses attributable to a failure to conform to a warranty are Tablesand&rsquo;s sole responsibility.</li>
+      <li>Apple is not responsible for addressing any claims relating to the app, including product-liability, regulatory, or intellectual-property claims; as between Apple and Tablesand, Tablesand is responsible for addressing such claims.</li>
+      <li><strong>Third-party terms.</strong> You must comply with any applicable third-party terms of agreement when using the app (for example, your wireless data-service plan).</li>
+      <li>Apple and its subsidiaries are third-party beneficiaries of these Terms and, upon your acceptance, will have the right to enforce them against you.</li>
+      <li>You represent that you are not located in a country subject to a U.S. Government embargo or designated as a &ldquo;terrorist-supporting&rdquo; country, and are not on any U.S. Government prohibited- or restricted-parties list.</li>
+      <li><strong>Questions or claims.</strong> Direct any questions, complaints, or claims about the app to Tablesand LLC at <a href="mailto:support@tablesand.com">support@tablesand.com</a>.</li>
+    </ul>
+
+    <h2>15. Changes to these Terms</h2>
+    <p>We may update these Terms as the app evolves. Material changes will be reflected on this page with a new &ldquo;Last updated&rdquo; date, and your continued use of the app means you accept the updated Terms.</p>
+
+    <h2>16. General</h2>
+    <p>If any provision of these Terms is found unenforceable, the remaining provisions remain in effect. These Terms, together with the Privacy Policy, Consumer Health Data Privacy Policy, and Health Disclaimer, are the entire agreement between you and us regarding the app. Our failure to enforce a provision is not a waiver. You may not assign these Terms; we may assign them in connection with a transfer of the app or our business.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about these Terms? Email us at <a href="mailto:support@tablesand.com">support@tablesand.com</a>.</p>
+  </main>
+
+  <footer>
+    <div>
+      <a href="/labora/support">Support</a> &middot;
+      <a href="/labora/privacy">Privacy Policy</a> &middot;
+      <a href="/labora/consumer-health-data">Consumer Health Data</a> &middot;
+      <a href="/labora/terms">Terms</a> &middot;
+      <a href="/labora/health-disclaimer">Health Disclaimer</a>
+    </div>
+    <div style="margin-top:10px;">&copy; Tablesand LLC</div>
+    <span class="disc">Labora is a general-wellness tool for understanding and tracking your own lab results - not medical advice, and not a substitute for professional care. It does not diagnose, treat, cure, or prevent any condition.</span>
+  </footer>
+</body>
+</html>

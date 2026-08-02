@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy - Labora</title>
+  <meta name="description" content="How the Labora app handles your information: your results stay on your device.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --paper: #F3F1ED;
+  --ink: #1A1916;
+  --muted: #5C564C;
+  --soft: #8A8377;
+  --accent: #A82C3C;
+  --accent-soft: #F6E4E7;
+  --card: #FFFFFF;
+  --border: #ECE7DE;
+  --footer: #1A1916;
+  --display: 'Schibsted Grotesk', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.65;
+}
+
+a { color: var(--accent); }
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+/* Top nav */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px clamp(24px, calc((100vw - 1132px) / 2), 40px);
+  background: rgba(243,241,237,.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.nav .brand { font-family: var(--display); font-weight: 600; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+.nav .links a { margin-left: 18px; font-size: 15px; text-decoration: none; color: var(--muted); }
+.nav .links a:hover { color: var(--ink); }
+
+/* Hero */
+.hero { text-align: center; padding: 56px 24px 56px; }
+.hero h1 { font-family: var(--display); font-size: clamp(40px, 8vw, 64px); font-weight: 600; margin: 0 0 12px; letter-spacing: -0.025em; }
+.hero .tag { font-size: clamp(18px, 3.2vw, 24px); color: var(--accent); font-weight: 600; margin: 0 0 20px; }
+.hero p { max-width: 560px; margin: 0 auto 0; font-size: 17px; color: var(--muted); }
+
+/* Feature / product row */
+.feat { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 8px 24px 56px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 24px;
+  flex: 1 1 240px;
+  max-width: 320px;
+  text-align: left;
+}
+.card h3 { margin: 0 0 8px; font-size: 18px; }
+.card p { margin: 0; font-size: 15px; color: var(--muted); }
+.card .link { display: inline-block; margin-top: 12px; font-size: 14px; font-weight: 600; text-decoration: none; }
+
+/* App icon */
+.appicon { display: block; width: 88px; height: 88px; border-radius: 20px; margin: 0 auto 22px; box-shadow: 0 2px 12px rgba(35, 33, 28, .14); }
+.card-head { display: flex; align-items: center; gap: 12px; margin: 0 0 8px; }
+.card-head img { width: 40px; height: 40px; border-radius: 9px; box-shadow: 0 1px 5px rgba(35, 33, 28, .12); }
+.card-head h3 { margin: 0; font-size: 18px; }
+
+/* App Store badge */
+.appstore { display: inline-block; line-height: 0; }
+.appstore img, .appstore svg { height: 52px; width: auto; }
+.appstore:hover { opacity: .85; }
+.card .appstore { margin-top: 14px; }
+
+/* Alternating screenshot showcase */
+.showcase { max-width: 900px; margin: 0 auto; padding: 8px 24px 24px; }
+.show-row { display: flex; align-items: center; gap: 52px; padding: 24px 0; }
+.show-row:nth-child(even) { flex-direction: row-reverse; }
+.show-text { flex: 1 1 0; min-width: 0; }
+.show-text h3 { font-size: clamp(22px, 3vw, 27px); margin: 0 0 10px; letter-spacing: -0.02em; }
+.show-text p { font-size: 16px; color: var(--muted); margin: 0; }
+.show-list { list-style: none; margin: 16px 0 0; padding: 0; }
+.show-list li { position: relative; padding-left: 26px; margin: 0 0 9px; font-size: 15px; color: var(--muted); }
+.show-list li:last-child { margin-bottom: 0; }
+.show-list li::before {
+  content: ""; position: absolute; left: 0; top: 6px; width: 15px; height: 9px;
+  border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent);
+  transform: rotate(-45deg);
+}
+.show-shot { flex: 0 0 auto; width: 208px; }
+.show-shot img { width: 100%; height: auto; display: block; border-radius: 28px; box-shadow: 0 12px 38px rgba(35, 33, 28, .16); }
+@media (max-width: 720px) {
+  .show-row, .show-row:nth-child(even) { flex-direction: column; text-align: center; gap: 20px; padding: 26px 0; }
+  .show-shot { width: 196px; }
+  .show-list { display: inline-block; text-align: left; }
+}
+
+/* Contact */
+.contact { text-align: center; padding: 8px 24px 56px; }
+.contact h2 { font-size: 22px; font-weight: 700; margin: 0 0 12px; }
+.mail {
+  display: inline-block; background: var(--accent); color: #fff;
+  text-decoration: none; padding: 12px 22px; border-radius: 10px; font-weight: 600; font-size: 16px;
+}
+.mail:hover { opacity: .9; }
+
+/* Document pages */
+.doc { padding: 48px 24px 24px; }
+.doc h1 { font-family: var(--display); font-size: clamp(30px, 5vw, 42px); font-weight: 600; margin: 0 0 6px; letter-spacing: -0.025em; }
+.doc .date { color: var(--soft); font-size: 14px; margin: 0 0 28px; }
+.doc h2 { font-family: var(--display); font-size: 20px; font-weight: 600; color: var(--accent); margin: 32px 0 10px; }
+.doc p { margin: 0 0 14px; font-size: 16px; color: #3F3A32; }
+.doc ul { margin: 0 0 14px; padding-left: 22px; }
+.doc li { margin: 0 0 8px; font-size: 16px; color: #3F3A32; }
+.doc strong { color: var(--ink); }
+
+/* Footer */
+footer {
+  background: var(--footer); color: #C9C3B7; text-align: center;
+  padding: 36px 24px; margin-top: 48px; font-size: 14px;
+}
+footer a { color: #E7E1D6; text-decoration: none; margin: 0 10px; }
+footer a:hover { text-decoration: underline; }
+footer .disc { display: block; max-width: 560px; margin: 12px auto 0; color: #8E887C; font-size: 12.5px; line-height: 1.6; }
+
+</style>
+  <link rel="icon" type="image/png" href="/favicon-96.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon-96.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" href="/">Tablesand</a>
+    <div class="links">
+      <a href="/labora">Labora</a>
+      <a href="/labora/privacy">Privacy</a>
+      <a href="/labora/terms">Terms</a>
+      <a href="/labora/support">Support</a>
+    </div>
+  </nav>
+
+  <main class="wrap doc">
+    <h1>Privacy Policy</h1>
+    <p class="date">Last updated: August 2, 2026</p>
+
+    <p>Labora is published by Tablesand LLC, a Colorado limited liability company (&ldquo;Tablesand,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;). This Privacy Policy explains how the Labora app handles your information. Lab results are among the most personal data you have, and we built Labora so that they stay on your device.</p>
+
+    <p>Labora is currently offered only in the United States. If you do not agree with this policy, please do not use the app.</p>
+
+    <h2>Our approach: your results stay on your device</h2>
+    <p>Labora has no account system and no user database. The reports you import, the values in them, the concerns you build, and the optional profile you provide are stored only on your device. We do not have servers that hold your results, and we cannot see them. One thing does leave your device, for one purpose, and it is described plainly in the next two sections.</p>
+
+    <h2>Information that stays on your device</h2>
+    <p>The following is stored only on your device, written with iOS Data Protection so it is unreadable while your device is locked, and excluded from iCloud and iTunes backups. We never receive it:</p>
+    <ul>
+      <li>Every lab report you save, including the marker names, values, units, and the reference ranges your lab printed.</li>
+      <li>The report dates, lab names, and provider names those reports carry.</li>
+      <li>The source page images kept alongside a saved report, so you can see where a value came from.</li>
+      <li>The concerns you create and the markers you group into them.</li>
+      <li>Your optional profile: biological sex and year of birth. Both are optional, and the app works fully without them.</li>
+    </ul>
+
+    <h2>Reading a report: what leaves your device</h2>
+    <p>This is the one part of Labora that is not on-device, and we would rather be direct about it than bury it.</p>
+    <p>When you scan or import a report, Labora renders its pages to images and sends them to our extraction service, which passes them to Google&rsquo;s Gemini service to be turned into text. The values come back to your device, and <strong>you confirm every one of them</strong> before anything is saved. That confirmation step is deliberate: an automatic read is never treated as final.</p>
+    <ul>
+      <li><strong>The pages are images of your lab report</strong>, so this is health information. We are not going to describe it as anything else.</li>
+      <li><strong>Nothing is retained.</strong> The pages are processed to return a result and are not stored by us. Our service logs the number of pages and which model was used, never the content of a report.</li>
+      <li><strong>Nothing is used to train a model.</strong> Google processes the pages as our service provider on a paid tier, under terms that do not permit using them to train its models, and they are not used to build an advertising profile.</li>
+      <li><strong>Nothing else goes with them.</strong> Your saved history, your concerns, and your profile are not sent.</li>
+    </ul>
+
+    <h2>Other information that leaves your device</h2>
+    <ul>
+      <li><strong>App-integrity checks.</strong> Labora uses Apple App Attest (via Firebase App Check) to confirm that requests come from a genuine copy of the app and to prevent abuse. These tokens contain no personal data, though the attestation and installation identifiers they use function as device identifiers.</li>
+    </ul>
+    <p>Labora contains no analytics SDK, no crash-reporting SDK, no advertising SDK, and no tracking of any kind.</p>
+
+    <h2>How we use information</h2>
+    <ul>
+      <li>To turn a report you scan into values you can confirm.</li>
+      <li>To explain, relate, and chart those values on your device.</li>
+      <li>To confirm that requests come from a genuine copy of the app.</li>
+    </ul>
+
+    <h2>Third-party service providers</h2>
+    <ul>
+      <li><strong>Google (Firebase Cloud Functions, Firebase App Check, and Gemini):</strong> turns your report pages into text and verifies app integrity. See Google&rsquo;s privacy policy at <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</li>
+      <li><strong>Apple:</strong> distributes the app through the App Store under Apple&rsquo;s terms. See <a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a>. Labora is free and has no in-app purchases, so no payment information is involved at all.</li>
+    </ul>
+    <p>We do not share your information with any other third parties.</p>
+
+    <h2>What we never do</h2>
+    <ul>
+      <li>We never sell your personal or health data.</li>
+      <li>We do not run ads, use ad-based monetization, or use any analytics SDK.</li>
+      <li>We do not use your results for marketing.</li>
+      <li>We do not store your health data in iCloud.</li>
+    </ul>
+
+    <h2>Data retention</h2>
+    <p>Because your reports and results live on your device, you control how long they are kept - they remain until you delete them or remove the app. Report pages sent for extraction are processed transiently to return a result and are not retained by us.</p>
+
+    <h2>Security</h2>
+    <p>Your on-device data is written with iOS Data Protection, which makes it unreadable while your device is locked, and is excluded from device backups. Pages sent for extraction and app-integrity checks are transmitted over encrypted connections. No method of storage or transmission is completely secure, and we cannot guarantee absolute security.</p>
+
+    <h2>Your choices and controls</h2>
+    <ul>
+      <li><strong>Access.</strong> Everything Labora holds about you is visible to you directly in the app; that is your copy of it. We hold no server-side copy to provide.</li>
+      <li><strong>Delete.</strong> You can delete any report from the app, and removing the app removes everything it stored. Because we do not store your results, deletion is complete for what we hold.</li>
+      <li><strong>Decline the cloud read.</strong> You can enter a report&rsquo;s values by hand instead of scanning it. Nothing leaves your device on that path.</li>
+    </ul>
+
+    <h2>Your U.S. state privacy rights</h2>
+    <p>Depending on where you live (for example California, Colorado, Virginia, or Connecticut), you may have rights to know about, access, correct, and delete your personal information, to opt out of its sale or of targeted advertising, to limit the use of sensitive information, and not to be treated differently for exercising these rights. Some states also allow you to appeal a decision.</p>
+    <p>Labora has no account and keeps no server-side copy of your reports, results, concerns, or profile - that information lives only on your device, where you control it directly. Because of this, for most of these rights there is nothing on our end to retrieve, correct, or erase: everything is <strong>visible to you in the app</strong> (that is your copy of it), and you can <strong>delete</strong> all of it yourself, at any time. If you send us a request, we will respond as the law requires - for access or deletion, by confirming that we hold no server-side copy of your information and directing you to these in-app controls; for a copy of your data in a portable format, email us and we will work with you given that the data is on your device. You may use an authorized agent, and you may appeal our response by replying to it, which we will reconsider. We do not &ldquo;sell&rdquo; or &ldquo;share&rdquo; personal information as those terms are defined under California law, and we run no targeted advertising, so there is nothing to opt out of.</p>
+
+    <h2>Consumer health data</h2>
+    <p>Lab results are &ldquo;consumer health data&rdquo; under some state laws, including in Washington and Nevada. We describe how we handle it, and the additional rights of Washington and Nevada residents, in our separate <a href="/labora/consumer-health-data">Consumer Health Data Privacy Policy</a>.</p>
+
+    <h2>Children</h2>
+    <p>Labora is intended for adults and is not directed to children. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has used Labora, contact us at <a href="mailto:privacy@tablesand.com">privacy@tablesand.com</a> and we will address it.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>We may update this policy as the app evolves. Material changes will be reflected on this page with a new &ldquo;Last updated&rdquo; date.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about privacy? Email us at <a href="mailto:privacy@tablesand.com">privacy@tablesand.com</a>.</p>
+  </main>
+
+  <footer>
+    <div>
+      <a href="/labora/support">Support</a> &middot;
+      <a href="/labora/privacy">Privacy Policy</a> &middot;
+      <a href="/labora/consumer-health-data">Consumer Health Data</a> &middot;
+      <a href="/labora/terms">Terms</a> &middot;
+      <a href="/labora/health-disclaimer">Health Disclaimer</a>
+    </div>
+    <div style="margin-top:10px;">&copy; Tablesand LLC</div>
+    <span class="disc">Labora is a general-wellness tool for understanding and tracking your own lab results - not medical advice, and not a substitute for professional care. It does not diagnose, treat, cure, or prevent any condition.</span>
+  </footer>
+</body>
+</html>
