@@ -156,7 +156,7 @@ footer .disc { display: block; max-width: 560px; margin: 12px auto 0; color: #8E
 
   <main class="wrap doc">
     <h1>Consumer Health Data Privacy Policy</h1>
-    <p class="date">Last updated: June 13, 2026</p>
+    <p class="date">Last updated: August 17, 2026</p>
 
     <p>This Consumer Health Data Privacy Policy explains how Tablesand LLC, the maker of Auditly, handles &ldquo;consumer health data&rdquo; as that term is used under certain U.S. state laws, including the Washington My Health My Data Act and Nevada&rsquo;s consumer health data law. It supplements our main <a href="/auditly/privacy">Privacy Policy</a>.</p>
 
@@ -167,6 +167,7 @@ footer .disc { display: block; max-width: 560px; margin: 12px auto 0; color: #8E
     <ul>
       <li><strong>Your on-device data is never collected by us.</strong> The supplements, doses, costs, goals, reports, and any health-context answers (such as medication use, pregnancy, or health conditions) you enter are stored only on your device. We have no account system and no servers that hold this data, we never receive it, and we cannot access it &mdash; so we do not collect, process, sell, or share it as those terms are used under these laws.</li>
       <li><strong>Label text is processed only to give you the scan you asked for.</strong> When you use automatic label reading, only the text read from a product label &mdash; not your health-context answers, goals, or photos &mdash; is sent to our service provider (Google) to structure it into ingredients and doses that you then confirm. We process that text because it is necessary to provide the label-scanning feature you requested; it is used for no other purpose, is not retained by us, and is handled under terms that do not permit using it to train models or to advertise.</li>
+      <li><strong>A scanned barcode is looked up in a public database.</strong> When you scan a product&rsquo;s barcode, that barcode alone is sent to the Dietary Supplement Label Database (DSLD), a public database published by the U.S. National Institutes of Health, so the product&rsquo;s ingredients and doses can be filled in for you to confirm. Your stack, goals, health-context answers, and any identifier of you or your device are not sent, and we do not retain the lookup. Unlike Google, NIH is not acting as our processor here &mdash; it is a public agency answering a request &mdash; so we disclose it separately.</li>
       <li><strong>We do not sell it.</strong> We never sell consumer health data. We have no mechanism for a consumer to authorize a sale, because no sale ever occurs.</li>
       <li><strong>We do not share it.</strong> We do not disclose consumer health data to any third party for that party&rsquo;s own use. Google acts only as our processor, on our instructions, and never receives your health-context answers.</li>
       <li><strong>No geofencing.</strong> We do not use geofencing around any health-care facility, or for any other purpose.</li>
@@ -175,14 +176,14 @@ footer .disc { display: block; max-width: 560px; margin: 12px auto 0; color: #8E
     <h2>Categories, sources, purposes, and sharing</h2>
     <p>To the extent any information you provide is treated as consumer health data under state law, this is how we handle it:</p>
     <ul>
-      <li><strong>Categories we collect off your device:</strong> only the text of a supplement label you choose to scan (for example, ingredient names and amounts). We do not collect your stack, doses, goals, reports, or health-context answers, because those never leave your device.</li>
-      <li><strong>Sources:</strong> the product label you photograph; its text is extracted on your device before any of it is sent.</li>
-      <li><strong>Purposes:</strong> solely to structure that label text into ingredients and doses for your confirmation &mdash; the feature you requested. There is no secondary use.</li>
-      <li><strong>Categories we share, and with whom:</strong> we share the label text only with Google, acting as our processor, to perform that structuring. We do not share consumer health data with any third party for that party&rsquo;s own purposes, we do not sell it, and we have no affiliates that receive it.</li>
+      <li><strong>Categories we collect off your device:</strong> only the text of a supplement label you choose to scan (for example, ingredient names and amounts). A barcode you choose to scan also leaves your device, but it goes directly to NIH&rsquo;s public database rather than to us. We do not collect your stack, doses, goals, reports, or health-context answers, because those never leave your device.</li>
+      <li><strong>Sources:</strong> the product label you photograph, whose text is extracted on your device before any of it is sent; and the barcode you point the camera at.</li>
+      <li><strong>Purposes:</strong> solely to structure that label text, or resolve that barcode, into ingredients and doses for your confirmation &mdash; the feature you requested. There is no secondary use.</li>
+      <li><strong>Categories we share, and with whom:</strong> we share the label text only with Google, acting as our processor, to perform that structuring. A scanned barcode goes to NIH so it can return the matching public label record. We do not share consumer health data with any third party for that party&rsquo;s own purposes, we do not sell it, and we have no affiliates that receive it.</li>
     </ul>
 
     <h2>Who we share data with</h2>
-    <p>We do not share consumer health data with third parties for their own use. We rely on Google (Firebase and Gemini) only as a processor to structure label text, and on Apple to process purchases. These providers act on our instructions and do not receive your health-context answers.</p>
+    <p>We do not share consumer health data with third parties for their own use. We rely on Google (Firebase and Gemini) only as a processor to structure label text, and on Apple to process purchases. These providers act on our instructions and do not receive your health-context answers. Separately, a barcode you scan is sent to the U.S. National Institutes of Health so its public label database can be searched; NIH receives nothing else, and does not act on our instructions.</p>
 
     <h2>Your rights</h2>
     <p>If you live in a state that grants consumer-health-data rights, you may have the right to confirm whether we process your consumer health data, access it, withdraw consent and have it deleted, and appeal a decision on your request. Here is how each works given that your data stays on your device:</p>
