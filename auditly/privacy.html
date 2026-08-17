@@ -177,7 +177,7 @@ footer .disc { display: block; max-width: 560px; margin: 12px auto 0; color: #8E
     <h2>Information that leaves your device, and who receives it</h2>
     <ul>
       <li><strong>Automatic label reading.</strong> When you scan a supplement label, the photo is read for text on your device. Only the extracted <strong>text</strong> - not the photo, your goals, or your health-context answers - is sent to our cloud function and to Google&rsquo;s Gemini service so it can be structured into ingredients and doses that you then confirm. Photos are not uploaded or stored by us. Google processes this text as our service provider on a paid tier under terms that do not permit using it to train its models, and it is not used to build an advertising profile.</li>
-      <li><strong>Barcode lookup.</strong> When you scan a product&rsquo;s barcode, that barcode is sent to the Dietary Supplement Label Database (DSLD), a public database published by the U.S. National Institutes of Health, so the product&rsquo;s ingredients and doses can be filled in for you to confirm. Only the barcode is sent - never your stack, your goals, or your health-context answers - and we attach no account or device identifier to the request. As with any request to a website, NIH receives the network address it comes from. We do not store these lookups.</li>
+      <li><strong>Barcode lookup.</strong> When you scan a product&rsquo;s barcode, that barcode is sent to the Dietary Supplement Label Database (DSLD), a public database published by the U.S. National Institutes of Health, so the product&rsquo;s ingredients and doses can be filled in for you to confirm. Only the barcode is sent - never your stack, your goals, or your health-context answers - and we attach no account identifier or unique device identifier to it. The request goes from your device to NIH directly: it does not pass through our servers, we never receive it, and we keep no record of it. As with any request to a website, NIH receives the network address it came from and the standard information your device sends with it, such as the app and operating-system version.</li>
       <li><strong>Crash and diagnostic data.</strong> We use Google Firebase Crashlytics to collect crash and diagnostic data so we can fix stability problems. This is kept separate from your supplement and health inputs, and scanned barcodes are deliberately excluded from it.</li>
       <li><strong>Purchases.</strong> Access passes are processed by Apple through the App Store. We receive only your access entitlement - never your name, card number, or payment details.</li>
       <li><strong>App-integrity checks.</strong> Auditly uses Apple App Attest (via Firebase App Check) to confirm that requests come from a genuine copy of the app and to prevent abuse. These tokens contain no personal data.</li>
@@ -192,11 +192,12 @@ footer .disc { display: block; max-width: 560px; margin: 12px auto 0; color: #8E
       <li>To process your purchases through Apple.</li>
     </ul>
 
-    <h2>Third-party service providers</h2>
+    <h2>Who receives information, and in what role</h2>
+    <p>Two of the recipients below are our service providers: they act on our instructions and may use what they receive only to perform the service. The third is not, and we say so plainly.</p>
     <ul>
-      <li><strong>Google (Firebase Cloud Functions, App Check, Gemini, and Crashlytics):</strong> structures extracted label text, verifies app integrity, and collects crash diagnostics. See Google&rsquo;s privacy policy at <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</li>
-      <li><strong>U.S. National Institutes of Health (Dietary Supplement Label Database):</strong> receives a scanned barcode so the matching product label can be looked up. NIH is a U.S. government agency and this is a public database, not a service provider acting for us. See NIH&rsquo;s web policies and notices at <a href="https://www.nih.gov/web-policies-notices">nih.gov/web-policies-notices</a>.</li>
-      <li><strong>Apple:</strong> processes purchases through the App Store under Apple&rsquo;s terms. See <a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a>.</li>
+      <li><strong>Google (Firebase Cloud Functions, App Check, Gemini, and Crashlytics) - our service provider:</strong> structures extracted label text, verifies app integrity, and collects crash diagnostics. See Google&rsquo;s privacy policy at <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</li>
+      <li><strong>U.S. National Institutes of Health (Dietary Supplement Label Database) - an independent third party:</strong> receives a scanned barcode so the matching product label can be looked up. NIH is a U.S. government agency operating a public database. It is <strong>not</strong> our service provider: it does not act on our instructions, we have no contract with it governing this, and its handling of the request is covered by its own policies, not ours. See NIH&rsquo;s web policies and notices at <a href="https://www.nih.gov/web-policies-notices">nih.gov/web-policies-notices</a>.</li>
+      <li><strong>Apple - our service provider for payments:</strong> processes purchases through the App Store under Apple&rsquo;s terms. See <a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a>.</li>
     </ul>
     <p>We do not share your information with any other third parties.</p>
 
@@ -208,7 +209,7 @@ footer .disc { display: block; max-width: 560px; margin: 12px auto 0; color: #8E
     </ul>
 
     <h2>Data retention</h2>
-    <p>Because your stack and reports live on your device, you control how long they are kept - they remain until you delete them or remove the app. Label text sent for structuring is processed transiently to return a result and is not retained by us. Crash diagnostics are retained by our provider for a limited period to help us fix problems.</p>
+    <p>Because your stack and reports live on your device, you control how long they are kept - they remain until you delete them or remove the app. Label text sent for structuring is processed transiently to return a result and is not retained by us. Barcode lookups never reach us, so we have nothing to retain; how long NIH keeps its own server records is governed by its policies. Crash diagnostics are retained by our provider for a limited period to help us fix problems.</p>
 
     <h2>Security</h2>
     <p>Your on-device data is protected by your device&rsquo;s standard data protection. Information sent for label structuring, barcode lookup, app-integrity checks, and crash reporting is transmitted over encrypted connections. No method of storage or transmission is completely secure, and we cannot guarantee absolute security.</p>
