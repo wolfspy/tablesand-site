@@ -88,14 +88,17 @@
   .eyebrow.teal{color:var(--teal)}
   h2{font-family:var(--display);font-size:clamp(30px,4.5vw,42px);letter-spacing:-.025em;font-weight:600;line-height:1.08}
 
-  /* ---------- How it works ---------- */
-  .how{max-width:1100px;margin:0 auto;padding:96px 28px 24px;text-align:center}
-  .how h2{max-width:640px;margin-inline:auto}
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px;text-align:left}
-  .step{background:var(--card);border:1px solid var(--hairline);border-radius:22px;padding:30px;box-shadow:0 12px 40px rgba(40,44,64,.05)}
-  .step .num{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:19px;color:var(--ink);margin-bottom:20px}
-  .step h3{font-family:var(--display);font-size:21px;font-weight:600;letter-spacing:-.02em;margin-bottom:9px}
-  .step p{font-size:16px;color:var(--ink-2)}
+  /* ---------- Questions ---------- */
+  .answers{max-width:1180px;margin:0 auto;padding:96px 28px 24px;text-align:center}
+  .answers h2{max-width:660px;margin-inline:auto;text-wrap:balance}
+  .qcards{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:52px;text-align:left}
+  .qcard{background:var(--card);border:1px solid var(--hairline);border-radius:22px;padding:24px 22px;box-shadow:0 12px 40px rgba(40,44,64,.05)}
+  .qcard .ico{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .qcard .ico svg{width:22px;height:22px;fill:none;stroke:var(--ink);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .qcard h3{font-family:var(--display);font-size:18.5px;font-weight:600;letter-spacing:-.02em;line-height:1.16;margin-bottom:10px;text-wrap:balance}
+  .qcard p{font-size:15px;line-height:1.45;color:var(--ink-2)}
+  /* two-line title slot so every card's copy starts on the same line */
+  @media (min-width:621px){ .qcard h3{min-height:2.32em} }
 
   /* ---------- Feature rows ---------- */
   .feature{padding:80px 0}
@@ -143,8 +146,11 @@
   footer.site .copy{font-size:13.5px;color:var(--ink-3);margin-top:16px}
 
   /* ============ RESPONSIVE ============ */
+  @media (max-width:1100px){
+    .qcards{grid-template-columns:repeat(3,1fr);gap:18px}
+  }
   @media (max-width:900px){
-    .steps{grid-template-columns:1fr}
+    .qcards{grid-template-columns:repeat(2,1fr)}
     .feature .grid,.feature.reverse .grid,.frontier .grid{grid-template-columns:1fr;gap:36px}
     .feature .shot{order:2}
     .feature .copy{order:1}
@@ -155,6 +161,7 @@
     .hero-devices .iphone{position:relative;transform:none;right:auto;top:0;width:160px;margin-left:-70px;align-self:center}
   }
   @media (max-width:620px){
+    .qcards{grid-template-columns:1fr}
     .nav-links{gap:16px}
     .nav-links a.muted{display:none}           /* keep just the CTA on small screens */
     .trust .sep{display:none}
@@ -204,26 +211,52 @@
   </div>
 </section>
 
-<!-- ===== HOW IT WORKS ===== -->
-<section class="how">
-  <div class="eyebrow teal">How it works</div>
-  <h2 style="margin-top:14px">From a shelf of bottles to one clear picture.</h2>
-  <div class="steps">
-    <div class="step">
-      <div class="num" style="background:linear-gradient(150deg,#A9E1D8,#A9CCEE)">1</div>
-      <h3>Scan or add</h3>
-      <p>Point at a barcode and Auditly fills in the label for you. Or photograph the Supplement Facts panel, or type it in by hand.</p>
+<!-- ===== WHAT AUDITLY ANSWERS ===== -->
+<section class="answers">
+  <div class="eyebrow teal">What Auditly answers</div>
+  <h2 style="margin-top:14px">The questions a shelf of bottles can't answer.</h2>
+  <div class="qcards">
+
+    <div class="qcard">
+      <div class="ico" style="background:linear-gradient(150deg,#A9E1D8,#A9CCEE)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="3"/><path d="M16 5.5A2.5 2.5 0 0 0 13.5 3h-7A3.5 3.5 0 0 0 3 6.5v7A2.5 2.5 0 0 0 5.5 16"/></svg>
+      </div>
+      <h3>Am I doubling up?</h3>
+      <p>Ingredients that repeat across products, and what the overlap may be costing you each month.</p>
     </div>
-    <div class="step">
-      <div class="num" style="background:linear-gradient(150deg,#C7BDEA,#D7C4E8)">2</div>
-      <h3>Run an audit</h3>
-      <p>See overlaps, dose flags, potential savings, and what may be worth raising with a clinician.</p>
+
+    <div class="qcard">
+      <div class="ico" style="background:linear-gradient(150deg,#A9CCEE,#C7BDEA)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16"/><path d="M12 21V9"/><path d="M7.5 13.5 12 9l4.5 4.5"/></svg>
+      </div>
+      <h3>Is anything too much?</h3>
+      <p>Your cumulative total for each ingredient against published upper-intake guidance, with the body that set it.</p>
     </div>
-    <div class="step">
-      <div class="num" style="background:linear-gradient(150deg,#F4CFD8,#F4C5B8)">3</div>
-      <h3>Take it daily</h3>
-      <p>Get a suggested order and time of day, then track what changed each time you re-audit.</p>
+
+    <div class="qcard">
+      <div class="ico" style="background:linear-gradient(150deg,#C7BDEA,#D9C3E8)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 21.5V2.5"/><path d="M5.5 3.5h12l-2.4 4 2.4 4h-12"/></svg>
+      </div>
+      <h3>What do I take for this?</h3>
+      <p>A lifting session, race day, a focus block, a flight, the first sign of a cold - what to take from your stack, and when.</p>
     </div>
+
+    <div class="qcard">
+      <div class="ico" style="background:linear-gradient(150deg,#E8C6E2,#F4CFD8)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 18.5h5"/><path d="M10.5 21.5h3"/><path d="M12 2.5a6 6 0 0 0-3.5 10.9c.6.45 1 1.15 1 1.9v.2h5v-.2c0-.75.4-1.45 1-1.9A6 6 0 0 0 12 2.5Z"/></svg>
+      </div>
+      <h3>What's this actually doing?</h3>
+      <p>Your stack read by effect - sedating, stimulant, hard on an empty stomach - plus the pairs that work against each other.</p>
+    </div>
+
+    <div class="qcard">
+      <div class="ico" style="background:linear-gradient(150deg,#F4CFD8,#F4C5B8)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.4l3.4 2"/></svg>
+      </div>
+      <h3>When do I take it?</h3>
+      <p>A suggested order and time of day, with the food, water, and cycling notes that go with each product.</p>
+    </div>
+
   </div>
 </section>
 
