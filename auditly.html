@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Auditly - See your supplement stack clearly</title>
-<meta name="description" content="Auditly reviews the supplements you take and shows where they overlap, where a dose may be worth a closer look, and where you may be overspending. We sell no supplements: no affiliate links, no paid placement.">
+<meta name="description" content="Auditly reviews the supplements you take and shows where they overlap, where a dose may be worth a closer look, and where you may be overspending. Scan a bottle in the store and see what adding it would change, before you pay. We sell no supplements: no affiliate links, no paid placement.">
 
 <link rel="icon" type="image/png" href="/favicon-96.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -91,8 +91,10 @@
   /* ---------- Questions ---------- */
   .answers{max-width:1180px;margin:0 auto;padding:96px 28px 24px;text-align:center}
   .answers h2{max-width:660px;margin-inline:auto;text-wrap:balance}
-  .qcards{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:52px;text-align:left}
-  .qcard{background:var(--card);border:1px solid var(--hairline);border-radius:22px;padding:24px 22px;box-shadow:0 12px 40px rgba(40,44,64,.05)}
+  /* flex rather than grid: the count is odd, so a short last row centers itself
+     instead of leaving a hole on the right */
+  .qcards{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:52px;text-align:left}
+  .qcard{flex:1 1 240px;max-width:272px;background:var(--card);border:1px solid var(--hairline);border-radius:22px;padding:24px 22px;box-shadow:0 12px 40px rgba(40,44,64,.05)}
   .qcard .ico{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
   .qcard .ico svg{width:22px;height:22px;fill:none;stroke:var(--ink);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
   .qcard h3{font-family:var(--display);font-size:18.5px;font-weight:600;letter-spacing:-.02em;line-height:1.16;margin-bottom:10px;text-wrap:balance}
@@ -109,6 +111,8 @@
   .feature .copy p{font-size:18px;color:#4A4640;margin-top:18px}
   .feature .shot{display:flex;justify-content:center}
   .feature .shot .device--phone{width:300px}
+  .feature .shot .device--pad{width:100%;max-width:520px;border-radius:26px}
+  .feature .shot .device--pad img{border-radius:17px}
   .checklist{display:flex;flex-direction:column;gap:13px;margin-top:24px}
   .checklist li{list-style:none;display:flex;align-items:flex-start;gap:13px;font-size:16.5px;color:#2A2620;font-weight:500}
   .checklist .ck{color:var(--keep);font-weight:800;margin-top:1px}
@@ -147,10 +151,10 @@
 
   /* ============ RESPONSIVE ============ */
   @media (max-width:1100px){
-    .qcards{grid-template-columns:repeat(3,1fr);gap:18px}
+    .qcards{gap:18px}
+    .qcard{flex-basis:280px;max-width:340px}
   }
   @media (max-width:900px){
-    .qcards{grid-template-columns:repeat(2,1fr)}
     .feature .grid,.feature.reverse .grid,.frontier .grid{grid-template-columns:1fr;gap:36px}
     .feature .shot{order:2}
     .feature .copy{order:1}
@@ -161,7 +165,7 @@
     .hero-devices .iphone{position:relative;transform:none;right:auto;top:0;width:160px;margin-left:-70px;align-self:center}
   }
   @media (max-width:620px){
-    .qcards{grid-template-columns:1fr}
+    .qcard{flex-basis:100%;max-width:none}
     .nav-links{gap:16px}
     .nav-links a.muted{display:none}           /* keep just the CTA on small screens */
     .trust .sep{display:none}
@@ -188,14 +192,14 @@
   <div class="inner">
     <div class="pill"><span class="dot"></span> Now on iPhone &amp; iPad</div>
     <h1>See your supplement stack clearly.</h1>
-    <p class="lede">Scan a barcode, build your stack, and get a calm, plain-language read on overlaps, doses, timing, and what's quietly costing you money.</p>
+    <p class="lede">Scan a barcode, build your stack, and get a calm, plain-language read on overlaps, doses, timing, and what's quietly costing you money. Standing in the store holding a bottle? Scan it and see what adding it would change, before you pay.</p>
     <div class="cta">
       <a class="badge" href="https://apps.apple.com/us/app/auditly/id6780102394"><img src="/appstore-badge.svg" alt="Download Auditly on the App Store"></a>
       <div class="fineprint">Free to download · No account · Nothing auto-renews</div>
     </div>
   </div>
   <div class="hero-devices">
-    <div class="device device--pad ipad"><img src="/auditly/img/ipad-stack.png" alt="Auditly Analysis tab on iPad, showing supplement plans for different activities"></div>
+    <div class="device device--pad ipad"><img src="/auditly/img/ipad-activities.png" alt="Auditly Analysis tab on iPad, showing supplement plans for different activities"></div>
     <div class="device device--phone iphone"><img src="/auditly/img/iphone-report.png" alt="Auditly audit report on iPhone"></div>
   </div>
 </section>
@@ -206,6 +210,8 @@
     <div class="item">🏷️ We don't sell supplements</div>
     <div class="sep"></div>
     <div class="item">Read off your actual bottle</div>
+    <div class="sep"></div>
+    <div class="item">Check it before you buy it</div>
     <div class="sep"></div>
     <div class="item">Nothing auto-renews</div>
     <div class="sep"></div>
@@ -225,6 +231,14 @@
       </div>
       <h3>Am I doubling up?</h3>
       <p>Ingredients that repeat across products, and what the overlap may be costing you each month.</p>
+    </div>
+
+    <div class="qcard">
+      <div class="ico" style="background:linear-gradient(150deg,#A2E0D6,#A9E1D8)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2.2l2.2 10.4a1.6 1.6 0 0 0 1.6 1.3h8.1a1.6 1.6 0 0 0 1.6-1.2L20.5 8H6.2"/><circle cx="10" cy="20" r="1.2"/><circle cx="17.5" cy="20" r="1.2"/></svg>
+      </div>
+      <h3>Should I buy this one?</h3>
+      <p>Scan a bottle on the shelf and see what adding it would do to the stack you already own, before you pay.</p>
     </div>
 
     <div class="qcard">
@@ -259,6 +273,14 @@
       <p>A suggested order and time of day, with the food, water, and cycling notes that go with each product.</p>
     </div>
 
+    <div class="qcard">
+      <div class="ico" style="background:linear-gradient(150deg,#F4C5B8,#F4CFD8)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M6 20v-6"/><path d="M11 20V7"/><path d="M16 20v-9"/><path d="M21 20V4"/></svg>
+      </div>
+      <h3>What is my money standing on?</h3>
+      <p>Your monthly spend split by how strong the human research behind each product is, for the goals you picked.</p>
+    </div>
+
   </div>
 </section>
 
@@ -267,17 +289,37 @@
   <div class="grid">
     <div class="copy">
       <div class="eyebrow">Your stack</div>
-      <h2>Everything you take, in one place.</h2>
+      <h2>Read it off your actual bottle.</h2>
       <p>Point at a barcode and Auditly fills in the ingredients and doses - enough to get through a whole shelf in one session. If a product is in no database, photograph the Supplement Facts panel and Auditly reads it straight off the label, so the odd bottle never stops you. Nothing is audited until you confirm what it read, named probiotic strains are recognized strain by strain, and you can add a product by hand any time. Keep separate stacks too - your own, a partner's, a travel kit - and audit each one on its own.</p>
+      <p>A stack can leave the app as plain text, too - to paste into a note, an email to your clinician, or a chat assistant - and Siri and Shortcuts can answer what's in it.</p>
     </div>
-    <div class="shot"><div class="device device--phone"><img src="/auditly/img/iphone-stack.png" alt="The My Stack screen" loading="lazy"></div></div>
+    <div class="shot"><div class="device device--phone"><img src="/auditly/img/iphone-scan.png" alt="Auditly reading a Supplement Facts panel through the camera" loading="lazy"></div></div>
   </div>
 </section>
 
-<!-- ===== FEATURE 2 ===== -->
+<!-- ===== FEATURE 2 - BEFORE YOU BUY ===== -->
 <section class="feature tinted reverse">
   <div class="grid">
-    <div class="shot"><div class="device device--phone"><img src="/auditly/img/iphone-verdicts.png" alt="The audit report verdicts" loading="lazy"></div></div>
+    <div class="shot"><div class="device device--phone"><img src="/auditly/img/iphone-buy-check.png" alt="The Before You Buy card, showing which ingredients a scanned bottle shares with your stack and what the combined daily amount would be" loading="lazy"></div></div>
+    <div class="copy">
+      <div class="eyebrow">Before you buy</div>
+      <h2>Check it before you pay for it.</h2>
+      <p>Standing in the store holding a bottle? Scan it and Auditly runs the audit over that product plus the stack you already own - not on the product alone.</p>
+      <ul class="checklist">
+        <li><span class="ck">✓</span>Which of its ingredients you already take, and from which of your products</li>
+        <li><span class="ck">✓</span>What each combined daily amount would become, against published upper-intake guidance</li>
+        <li><span class="ck">✓</span>What it would make redundant, and what that does to your monthly spend</li>
+        <li><span class="ck">✓</span>What the research says about it for the goals you picked</li>
+      </ul>
+      <p style="font-size:16.5px;color:#4A4640;margin-top:20px">Nothing is added to your stack unless you tap Add, and "Done" drops you back at the viewfinder, so the next bottle on the shelf costs one more scan.</p>
+      <p class="fineprint" style="margin-top:22px">The whole check is free.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURE 3 - THE AUDIT ===== -->
+<section class="feature">
+  <div class="grid">
     <div class="copy">
       <div class="eyebrow">The audit</div>
       <h2>A clear, cautious read on your stack.</h2>
@@ -290,12 +332,26 @@
         <li><span class="ck">✓</span>What in your stack relates to each goal you picked, and how strong the evidence behind it is</li>
       </ul>
       <p style="font-size:16.5px;color:#4A4640;margin-top:20px">Every finding is computed on your device by the same rules every time, cited to a source you can open, and stamped with the rule and evidence-library versions it ran under. The same stack gives you the same answer, not a fresh opinion each time you ask.</p>
-      <p class="fineprint" style="margin-top:22px">Your dose concerns and clinician flags are free to read in full. A one-time pass opens the complete report - product verdicts, the overlap detail, and re-audits. Nothing auto-renews.</p>
+      <p class="fineprint" style="margin-top:22px">Free to read in full: your dose concerns, your clinician flags, both spending breakdowns, and every purchase check you run. A pass opens the rest of the report - product verdicts, the overlap detail, the daily schedule, and re-audits. Nothing auto-renews.</p>
+    </div>
+    <div class="shot"><div class="device device--phone"><img src="/auditly/img/iphone-verdicts.png" alt="The audit report verdicts" loading="lazy"></div></div>
+  </div>
+</section>
+
+<!-- ===== FEATURE 4 - VALUE ===== -->
+<section class="feature tinted reverse">
+  <div class="grid">
+    <div class="shot"><div class="device device--pad"><img src="/auditly/img/ipad-value.png" alt="The Value lens, showing monthly spend broken down by how strong the human evidence behind each product is" loading="lazy"></div></div>
+    <div class="copy">
+      <div class="eyebrow">Value</div>
+      <h2>See what your money is standing on.</h2>
+      <p>A monthly total is a spreadsheet. What you actually want to know is whether the $92 is buying anything. The Value lens splits your spend two ways: by <strong>how strong the human research is</strong> behind each product for the goals you picked, and by <strong>what job each one is doing</strong> - covered elsewhere in your stack, overlapping but still filling a gap, or the only source you have.</p>
+      <p style="font-size:16.5px;color:#4A4640;margin-top:20px">A band describes the research behind a product, not whether it is worth taking - and every band names itself in its own words, so "animal studies only" appears as a fact rather than as a ranking. Free, computed live, and on the report and the PDF too.</p>
     </div>
   </div>
 </section>
 
-<!-- ===== FEATURE 3 ===== -->
+<!-- ===== FEATURE 5 - TIMING ===== -->
 <section class="feature">
   <div class="grid">
     <div class="copy">
@@ -307,7 +363,7 @@
   </div>
 </section>
 
-<!-- ===== FEATURE 4 - ACTIVITIES ===== -->
+<!-- ===== FEATURE 6 - ACTIVITIES ===== -->
 <section class="feature tinted reverse">
   <div class="grid">
     <div class="shot"><div class="device device--phone"><img src="/auditly/img/iphone-activities.png" alt="The Activities list - pick an occasion to see what to take" loading="lazy"></div></div>
@@ -319,7 +375,7 @@
   </div>
 </section>
 
-<!-- ===== FEATURE 5 - EFFECTS ===== -->
+<!-- ===== FEATURE 7 - EFFECTS ===== -->
 <section class="feature">
   <div class="grid">
     <div class="copy">
@@ -331,14 +387,14 @@
   </div>
 </section>
 
-<!-- ===== FEATURE 6 - FRONTIER ===== -->
+<!-- ===== FEATURE 8 - FRONTIER ===== -->
 <section class="feature tinted reverse">
   <div class="grid">
     <div class="shot"><div class="device device--phone"><img src="/auditly/img/iphone-frontier.png" alt="The Frontier screen - browse early-evidence substances by goal" loading="lazy"></div></div>
     <div class="copy">
       <div class="eyebrow">Frontier</div>
       <h2>Go beyond your stack.</h2>
-      <p>Browse the Frontier by goal - longevity, mood, calm, muscle, nootropics - and surface early-evidence leads tied to what you already take. Or reach it from where you already are: tap an ingredient under Frontier Research in your report, or press and hold a product in your stack, to open its full dossier. Exploratory reading, not advice.</p>
+      <p>Browse the Frontier by goal - longevity, mood, calm, muscle, nootropics - and surface early-evidence leads tied to what you already take. Or reach it from where you already are: tap an ingredient under Frontier Research in your report, or press and hold a product in your stack, to open its full dossier. Any research note can be shared with the paper it came from. Exploratory reading, not advice.</p>
     </div>
   </div>
 </section>
@@ -349,7 +405,7 @@
     <div class="copy">
       <div class="eyebrow">More room on iPad</div>
       <h2>Your whole stack, side by side.</h2>
-      <p>On iPad, the Frontier opens into a two-column view - scan watch-outs in your stack, browse 200+ substances, and explore early-evidence leads by goal, all tied to what you already take. Same private app, more room to think.</p>
+      <p>On iPad, the Frontier opens into a two-column view - scan watch-outs in your stack, browse 270+ substances, and explore early-evidence leads by goal, all tied to what you already take. Same private app, more room to think.</p>
       <div style="margin-top:30px"><a class="badge" href="https://apps.apple.com/us/app/auditly/id6780102394"><img src="/appstore-badge.svg" alt="Download on the App Store" style="height:54px"></a></div>
     </div>
     <div class="shot"><div class="device device--pad"><img src="/auditly/img/ipad-frontier.png" alt="Auditly Frontier on iPad" loading="lazy"></div></div>
