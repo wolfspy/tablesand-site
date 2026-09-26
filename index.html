@@ -107,9 +107,9 @@
   .dl-row { display: flex; align-items: center; gap: 22px; }
   .dl-row span { font-size: 14px; color: var(--faint); }
   .showcase__more { display: inline-block; margin-top: 26px; font-size: 15px; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); padding-bottom: 2px; }
-  .phone { border-radius: 38px; overflow: hidden; border: 1px solid var(--hairline); box-shadow: 0 40px 90px rgba(26,26,24,.22); }
-  .phone img { width: 310px; }
-  .showcase__art { display: flex; justify-content: center; }
+  .phone { width: 326px; max-width: 100%; padding: 8px; border-radius: 36px; background: #2C2D33; overflow: hidden; box-shadow: 0 40px 90px rgba(26,26,24,.22); }
+  .phone img { width: 100%; border-radius: 28px; }
+  .showcase__art { display: flex; justify-content: center; min-width: 0; }
 
   /* ---------- features ---------- */
   .features { max-width: var(--maxw); margin: 0 auto; padding: 32px 40px 60px; }
@@ -121,8 +121,8 @@
     background: var(--surface); border: 1px solid var(--hairline); border-radius: 24px; padding: 36px 32px;
     box-shadow: 0 1px 2px rgba(26,26,24,.03), 0 16px 40px rgba(26,26,24,.05);
   }
-  .card__shot { border-radius: 20px; overflow: hidden; margin-bottom: 30px; border: 1px solid #F0EFE9; box-shadow: 0 12px 30px rgba(26,26,24,.08); }
-  .card__shot img { width: 100%; }
+  .card__shot { border-radius: 28px; padding: 6px; background: #2C2D33; overflow: hidden; margin-bottom: 30px; box-shadow: 0 12px 30px rgba(26,26,24,.08); }
+  .card__shot img { width: 100%; border-radius: 22px; }
   .card h4 { font-family: var(--display); font-weight: 600; font-size: 21px; letter-spacing: -.01em; margin: 0 0 12px; }
   .card p { font-size: 15.5px; line-height: 1.55; color: var(--muted-2); margin: 0; }
 

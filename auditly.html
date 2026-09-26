@@ -44,10 +44,10 @@
   /* ---------- Device frames ---------- */
   .device{background:var(--bezel)}
   .device img{width:100%;background:#e9e7e2}      /* placeholder tone before load */
-  .device--phone{border-radius:50px;padding:10px;box-shadow:0 40px 90px -28px rgba(40,44,64,.4)}
-  .device--phone img{border-radius:42px;aspect-ratio:1320/2868}
+  .device--phone{border-radius:34px;padding:10px;box-shadow:0 40px 90px -28px rgba(40,44,64,.4)}
+  .device--phone img{border-radius:24px;aspect-ratio:1320/2868}
   .device--pad{border-radius:30px;padding:11px;box-shadow:0 50px 110px -30px rgba(40,44,64,.42),0 8px 24px rgba(40,44,64,.16)}
-  .device--pad img{border-radius:20px;aspect-ratio:2064/2752}
+  .device--pad img{border-radius:19px;aspect-ratio:2064/2752}
 
   /* ---------- Buttons ---------- */
   .btn-dark{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;font-weight:600;font-size:14.5px;padding:10px 18px;border-radius:999px}
@@ -74,8 +74,8 @@
 
   .hero-devices{position:relative;max-width:1180px;margin:64px auto 0;height:660px}
   .hero-devices .ipad{position:absolute;left:50%;top:0;transform:translateX(-62%);width:720px}
-  .hero-devices .iphone{position:absolute;right:50%;top:118px;transform:translateX(338px);width:266px;border-radius:46px}
-  .hero-devices .iphone img{border-radius:38px}
+  .hero-devices .iphone{position:absolute;right:50%;top:118px;transform:translateX(338px);width:266px;border-radius:30px;padding:8px}
+  .hero-devices .iphone img{border-radius:22px}
 
   /* ---------- Trust strip ---------- */
   .trust{background:var(--ink);color:#fff;padding:30px 0}
@@ -112,7 +112,7 @@
   .feature .shot{display:flex;justify-content:center}
   .feature .shot .device--phone{width:300px}
   .feature .shot .device--pad{width:100%;max-width:520px;border-radius:26px}
-  .feature .shot .device--pad img{border-radius:17px}
+  .feature .shot .device--pad img{border-radius:15px}
   .checklist{display:flex;flex-direction:column;gap:13px;margin-top:24px}
   .checklist li{list-style:none;display:flex;align-items:flex-start;gap:13px;font-size:16.5px;color:#2A2620;font-weight:500}
   .checklist .ck{color:var(--keep);font-weight:800;margin-top:1px}
@@ -126,7 +126,7 @@
   .frontier .copy .eyebrow{color:#3A4452}
   .frontier .shot{display:flex;justify-content:center}
   .frontier .device--pad{width:560px;border-radius:26px}
-  .frontier .device--pad img{border-radius:17px}
+  .frontier .device--pad img{border-radius:15px}
 
   /* ---------- Privacy ---------- */
   .privacy{max-width:900px;margin:0 auto;padding:90px 28px;text-align:center}
@@ -162,7 +162,8 @@
     /* Hero: stack devices instead of absolute overlap */
     .hero-devices{height:auto;display:flex;justify-content:center;align-items:flex-start;gap:0;margin-top:48px}
     .hero-devices .ipad{position:static;transform:none;width:min(560px,86%)}
-    .hero-devices .iphone{position:relative;transform:none;right:auto;top:0;width:160px;margin-left:-70px;align-self:center}
+    .hero-devices .iphone{position:relative;transform:none;right:auto;top:0;width:160px;margin-left:-70px;align-self:center;border-radius:20px;padding:6px}
+    .hero-devices .iphone img{border-radius:14px}
   }
   @media (max-width:620px){
     .qcard{flex-basis:100%;max-width:none}
@@ -326,10 +327,10 @@
       <p>Run an audit and Auditly gives every product a plain verdict - Keep, Cut, or Replace - and explains why in non-medical language:</p>
       <ul class="checklist">
         <li><span class="ck">✓</span>Ingredients that overlap across more than one product</li>
-        <li><span class="ck">✓</span>Doses that may be worth a closer look</li>
+        <li><span class="ck">✓</span>Labeled dose gauges that put your entered amounts alongside studied ranges and upper limits</li>
         <li><span class="ck">✓</span>Where overlap may be costing you money</li>
         <li><span class="ck">✓</span>What may be worth raising with a clinician</li>
-        <li><span class="ck">✓</span>What in your stack relates to each goal you picked, and how strong the evidence behind it is</li>
+        <li><span class="ck">✓</span>Research summaries and citations beneath dose context, so you can explore the evidence for your goals</li>
       </ul>
       <p style="font-size:16.5px;color:#4A4640;margin-top:20px">Every finding is computed on your device by the same rules every time, cited to a source you can open, and stamped with the rule and evidence-library versions it ran under. The same stack gives you the same answer, not a fresh opinion each time you ask.</p>
       <p class="fineprint" style="margin-top:22px">Free to read in full: your dose concerns, your clinician flags, both spending breakdowns, and every purchase check you run. A pass opens the rest of the report - product verdicts, the overlap detail, the daily schedule, and re-audits. Nothing auto-renews.</p>
